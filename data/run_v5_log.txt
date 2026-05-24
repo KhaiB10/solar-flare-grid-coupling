@@ -1,0 +1,56 @@
+[load] N = 246 G4+ events, T = 34,333 days = 94.0 years
+[ssn] 3328 smoothed monthly SSN values, range 1749.04 – 2026.29
+[ssn] mean smoothed SSN over 1932-2025 = 93.50
+
+[fit] multi-start MLE for non-stationary Hawkes (μ0, γ, α, β)…
+  trial 1: μ0=0.00548  γ=0.846  α=0.1707  β=0.6413  η=0.266  -LL=1295.11
+  trial 2: μ0=0.00548  γ=0.846  α=0.1707  β=0.6413  η=0.266  -LL=1295.11
+  trial 3: μ0=0.00548  γ=0.846  α=0.1707  β=0.6413  η=0.266  -LL=1295.11
+  trial 4: μ0=0.00548  γ=0.846  α=0.1707  β=0.6413  η=0.266  -LL=1295.11
+  trial 5: μ0=0.00548  γ=0.846  α=0.1707  β=0.6413  η=0.266  -LL=1295.11
+  trial 6: μ0=0.00548  γ=0.846  α=0.1707  β=0.6413  η=0.266  -LL=1295.11
+  trial 7: μ0=0.00548  γ=0.846  α=0.1707  β=0.6413  η=0.266  -LL=1295.11
+  trial 8: μ0=0.00548  γ=0.846  α=0.1707  β=0.6413  η=0.266  -LL=1295.11
+
+[MLE v5] best fit:
+  μ0 = 0.00548 events/day  =  2.000 events/year (background at S=S_bar)
+  γ  = 0.846  (SSN-modulation exponent)
+  α  = 0.1707  (excitation amplitude)
+  β  = 0.6413 1/day,  decay timescale 1/β = 1.56 days
+  η  = α/β = 0.266  (branching ratio)
+  log-likelihood = -1295.11,  AIC = 2598.21
+
+[compare] refitting v4 stationary Hawkes (γ=0) for direct comparison…
+  v5 (non-stat Hawkes, 4 params):  LL=-1295.11  AIC=2598.21
+  v4 (stationary Hawkes, 3 params): LL=-1335.61  AIC=2677.23
+  v0 (Poisson, 1 param):            LL=-1460.88  AIC=2923.76
+  ΔAIC (v5 − v4) = -79.02   (negative = v5 wins)
+  ΔAIC (v5 − Poisson) = -325.55
+  LR (v5 vs v4) = 81.02,  χ²(1) p = 0.000e+00
+
+[GOF] time-rescaling residuals…
+  v5 rescaled τ: mean=1.001, var=1.211
+  v5 KS vs Exp(1): D=0.055, p=4.384e-01
+  v4 KS vs Exp(1) (ref): D=0.115, p=2.805e-03
+  Lag-1 autocorr of τ: v5 r=+0.019 (p=7.66e-01),  v4 r=+0.228 (p=3.34e-04)
+
+[declust] stochastic declustering (v5)…
+  Expected background events: 180.5  (73.4%)
+  Expected offspring events:  65.5  (26.6%)
+
+[sim] Monte Carlo decadal simulations under v5…
+  Scenario A (random historical decade):
+    mean=26.6  sd=9.2  Var/Mean=3.17  95% CI=[10, 45]
+    P(>=4 G4+ in any 7-day window) = 0.451
+  Scenario B (SC25-like ascending+peak decade):
+    mean=17.6  sd=5.8  Var/Mean=1.90  95% CI=[8, 30]
+    P(>=4 G4+ in any 7-day window) = 0.332
+  v4 stationary Hawkes ref:
+    mean=26.1  sd=7.3  Var/Mean=2.02
+  Poisson ref: mean=26.3  sd=5.1
+
+[fig] 12_v5_mu_of_t.png
+[fig] 13_v5_residuals.png
+[fig] 14_v5_decadal_counts.png
+
+[done] v5 non-stationary Hawkes analysis complete

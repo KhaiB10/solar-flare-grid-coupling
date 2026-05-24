@@ -1,0 +1,37 @@
+v5: Non-stationary Hawkes (SSN-modulated background) — G4+ storms 1932-2025
+======================================================================
+
+N events: 246
+Observation window: 94.00 years
+Mean smoothed SSN over window: 93.50
+
+MLE parameters:
+  μ0 = 0.00548 events/day  (2.000/yr at S=S_bar)
+  γ  = 0.8463
+  α  = 0.1707
+  β  = 0.6413 1/day   (1/β = 1.56 d)
+  η  = 0.2662
+
+Log-likelihood: v5=-1295.11  v4=-1335.61  Poisson=-1460.88
+AIC: v5=2598.21  v4=2677.23  Poisson=2923.76
+ΔAIC (v5−v4) = -79.02
+LR (v5 vs v4) = 81.02,  χ²(1) p = 0.000e+00
+
+Time-rescaling residuals:
+  v5: mean=1.001 var=1.211 KS p=4.384e-01
+  v4: mean=0.999 var=2.119 KS p=2.805e-03
+  Lag-1 autocorr v5: r=+0.019 p=7.66e-01
+  Lag-1 autocorr v4: r=+0.228 p=3.34e-04
+
+Stochastic declustering (v5):
+  Background: 180.5 (73.4%)
+  Offspring:  65.5 (26.6%)
+
+Monte Carlo (5000 decades, decade = 3652.5 days):
+  v5 random historical: mean=26.57 sd=9.17 Var/Mean=3.17
+  v5 SC25-like decade:  mean=17.63 sd=5.78 Var/Mean=1.90
+  v4 stationary Hawkes: mean=26.15 sd=7.26 Var/Mean=2.02
+  Poisson reference:    mean=26.28 sd=5.14
+  P(>=4 G4+ in any 7-day window per decade):
+     v5 historical = 0.451
+     v5 SC25-like  = 0.332

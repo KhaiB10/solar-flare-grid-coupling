@@ -22,6 +22,36 @@ A 94-year open replication of geomagnetic storm hazard rates with documented gri
 
 
 
+## v5 finding — non-stationary Hawkes with SSN-modulated background
+
+v4's stationary Hawkes left two warning signs: rescaled-residual KS p = 2.8×10⁻³
+and a lag-1 autocorrelation of r = +0.23 (p = 3.3×10⁻⁴) — both pointing to an
+unmodeled long-timescale component. v5 adds the obvious candidate: the solar
+cycle itself, via a power-law-in-SSN background
+
+  μ(t) = μ₀ · (SSN_smoothed(t) / ⟨SSN⟩)^γ
+
+Joint MLE of (μ₀, γ, α, β), 8 random starts all converging:
+
+- μ₀ = **2.00 events/year** at mean-cycle SSN
+- **γ = 0.846** — sub-linear SSN response (not quite linear, far from quadratic)
+- 1/β = **1.56 days** (excitation decay tightens slightly vs v4)
+- η = **0.266** — branching ratio stable, clustering structure preserved
+
+**v5 beats v4 by ΔAIC = −79.0**, LR χ²(1) = 81.0, p ≈ 0. Rescaled residuals
+collapse from KS p = 2.8×10⁻³ to **KS p = 0.44** — statistically
+indistinguishable from Exp(1) — and the lag-1 autocorrelation drops from
++0.228 to **+0.019**. Both v4 warning signs are eliminated.
+
+Forward simulation now depends on *where in the cycle the decade lives*: a
+SC25-like decade (2016–2025) carries an expected 17.6 G4+ days, versus the
+all-history mean of 26.6 — a 34% reduction that v4 could not see.
+
+See [`FINDINGS_v5.md`](FINDINGS_v5.md) and
+[`scripts/analyze_hawkes_nonstationary.py`](scripts/analyze_hawkes_nonstationary.py).
+
+![v5 SSN-modulated background](figures/12_v5_mu_of_t.png)
+
 ## v4 finding — formal Hawkes self-exciting point process
 
 Turning the v3 observation into a proper generative model: we fit a univariate
