@@ -19,6 +19,21 @@ A 94-year open replication of geomagnetic storm hazard rates with documented gri
 
 ![Monte Carlo: distribution of worst decadal ap](figures/03_monte_carlo_decadal.png)
 
+
+## v2 addendum — solar-cycle-phase conditioning
+
+The original analysis treated storm arrivals as homogeneous Poisson. v2 splits the
+94-year record into the four standard cycle phases (min / rising / max / declining)
+using the [SILSO sunspot record](https://www.sidc.be/SILSO/) and re-runs the Monte
+Carlo. Headline result: the original 58.5% decadal Carrington-class estimate is
+robust (re-derived as 56.0% under a realistic phase mix), but **a decade entirely
+at solar max carries 76.8% hazard versus 6.3% at solar min** — an order-of-magnitude
+spread that matters for sub-decadal planning.
+
+See [`FINDINGS_v2.md`](FINDINGS_v2.md) and [`scripts/analyze_phase.py`](scripts/analyze_phase.py).
+
+![Decadal hazard by phase](figures/05_phase_hazard_compare.png)
+
 ## Repo layout
 
 ```

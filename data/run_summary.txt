@@ -10,3 +10,14 @@ P(>=1 1.5x-Carrington in decade): 0.0247
 Median decadal worst ap: 413
 95th-pct decadal worst ap: 561
 99th-pct decadal worst ap: 650
+
+
+=== PHASE-CONDITIONED EXTENSION ===
+Realistic-mix decadal P(Carrington): 0.5601
+All-max decadal P(Carrington):       0.7683
+All-min decadal P(Carrington):       0.0627
+Unconditional (re-derived):          0.5851
+  min: λ=8.15/yr  ξ=-0.035  σ=50.73
+  rising: λ=14.58/yr  ξ=-0.072  σ=65.78
+  max: λ=19.85/yr  ξ=-0.037  σ=71.20
+  declining: λ=21.97/yr  ξ=-0.022  σ=66.46
