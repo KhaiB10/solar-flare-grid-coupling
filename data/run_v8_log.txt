@@ -1,0 +1,75 @@
+[load] events: N=339, range 1869-04-15 → 2025-11-12
+[load] full window: 57708 days (158.0 yr)
+[split] train: 1868-01-01 → 2015-12-31  (54056 days, 148.0 yr)
+        test : 2016-01-01 → 2025-12-31  (3652 days, 10.00 yr)
+[split] train events: 327  (G4 288, G5 39)
+        test  events: 12  (G4 11, G5 1)
+[ssn] Training-period mean smoothed SSN (1868-2015) = 85.48
+
+[train] multi-start MLE on 1868-2015 ONLY…
+  trial 1: μ0=0.00459 γ=0.973 α=0.1130 β=0.6287 κ=+0.870  -LL=1766.37
+  trial 2: μ0=0.00459 γ=0.973 α=0.1130 β=0.6287 κ=+0.870  -LL=1766.37
+  trial 3: μ0=0.00459 γ=0.973 α=0.1130 β=0.6287 κ=+0.870  -LL=1766.37
+  trial 4: μ0=0.00459 γ=0.973 α=0.1130 β=0.6287 κ=+0.870  -LL=1766.37
+  trial 5: μ0=0.00459 γ=0.973 α=0.1130 β=0.6287 κ=+0.870  -LL=1766.37
+  trial 6: μ0=0.00459 γ=0.973 α=0.1130 β=0.6287 κ=+0.870  -LL=1766.37
+  fit time: 4.8s
+
+[train MLE]
+  μ0 = 0.00459/d = 1.675/yr at S̄_train
+  γ  = 0.9726
+  1/β= 1.59 d
+  exp(κ) = 2.386×
+  η(G4) = 0.180,  η(G5) = 0.429
+  log-L (train) = -1766.37
+
+[compare] v7 full-data fit (for reference -- NOT used below):
+  μ0=0.00443 γ=0.995 α=0.1133 β=0.6424 κ=+0.899
+
+[test] held-out log-likelihood on 2016-2025
+  held-out log-L (frozen v8 Hawkes): -67.840
+  null Poisson rate (train): λ = 2.210/yr
+  held-out log-L (Poisson):  -83.386
+  ΔlogL (Hawkes − Poisson): +15.546  (+1.295 per event)
+  SSN-Poisson (frozen μ0,γ): logL = -72.687  ΔlogL Hawkes − SSN-Poisson: +4.846
+
+[rescale] time-rescaling theorem on test period
+  N_test = 12, τ mean=1.177, var=1.126
+  KS p (Exp(1)): 8.385e-01   lag-1 r: -0.202  p=5.52e-01
+
+[cumcount] expected vs observed cumulative count on test window
+  At end of test window: E[N]=14.7, observed N=12
+  Poisson 95% band: [8, 23]
+  Total Λ over test = 14.72, N_te = 12
+  Poisson test p (two-sided, deviation from mean): 0.583
+
+[rolling] 30-day-ahead forecasts (daily)
+  N forecast days: 3623
+  mean predicted P(≥1 in 30d): 0.105
+  observed rate of ≥1 in 30d:  0.075
+  Brier score: 0.0400
+  Brier (climatology): 0.0697
+  Brier skill score: +0.426
+  reliability bins (pred mid → obs freq, n):
+    [0.0,0.1]: pred=0.03 obs=0.00 n=2199
+    [0.1,0.2]: pred=0.16 obs=0.00 n=948
+    [0.2,0.3]: pred=0.22 obs=0.16 n=236
+    [0.3,0.4]: pred=0.35 obs=0.95 n=150
+    [0.4,0.5]: pred=0.45 obs=0.94 n=33
+    [0.5,0.6]: pred=0.55 obs=1.00 n=31
+    [0.6,0.7]: pred=0.62 obs=1.00 n=26
+
+[marks] observed G5 fraction in test vs model implication
+  observed: 1 G5, 11 G4-class  →  G5 frac = 0.083
+  train climatology: 39/327 = 0.119
+  binomial test (test G5 frac vs train clim): p = 1.144
+
+[save] data/v8_summary.json written
+[plot] figures/19_v8_cumulative_count.png
+[plot] figures/20_v8_qq_holdout.png
+[plot] figures/21_v8_rolling30d.png
+[plot] figures/22_v8_reliability.png
+
+[done] v8 out-of-sample evaluation complete.
+       summary JSON: data/v8_summary.json
+       plots: figures/19-22

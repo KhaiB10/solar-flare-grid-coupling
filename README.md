@@ -22,6 +22,53 @@ A 94-year open replication of geomagnetic storm hazard rates with documented gri
 
 
 
+## v8 finding — out-of-sample test: fit 1868-2015, predict 2016-2025
+
+The strictest credibility check possible: freeze the model on 1868-2015 data
+and evaluate predictive performance over the entire **held-out** 2016-2025
+window — including the May 2024 Gannon G5 storm, October 2024 G4 cluster,
+and November 2025 G4. The model never saw any of it during fitting.
+
+**Predicted vs observed in the 10-year held-out window:**
+
+- Expected count from frozen model: **14.7 events**, Poisson 95% band [8, 23]
+- Observed: **12 events**
+- Two-sided Poisson test p = **0.58** (fully consistent)
+
+**Held-out log-likelihood gain (positive = Hawkes better):**
+
+| Model | held-out logL | Δ vs Hawkes |
+|---|---|---|
+| v8 marked Hawkes (frozen) | **−67.84** | — |
+| SSN-modulated Poisson | −72.69 | +4.85 |
+| Constant-rate Poisson | −83.39 | **+15.55** |
+
+A +1.30 nats-per-event gain over the constant-rate null on data the model
+has never seen — the observed sequence is **~5.7 million times more likely**
+under v8.
+
+**Time-rescaling on test events:** KS p = **0.84**, lag-1 r = **−0.20**. The
+transformed test interarrivals look like i.i.d. Exp(1) — the model fits
+unseen data as cleanly as it fits training data.
+
+**Rolling 30-day probabilistic forecast** (issued daily, using only the
+history available at issue time): Brier score = **0.040** vs climatology
+0.070, **Brier skill score = +0.426** — a 43% improvement over predicting
+the base rate.
+
+**The most interesting finding** is in the reliability diagram. The model is
+perfectly calibrated at low predicted probabilities but **under-confident at
+high predicted probabilities**: when it warned of 35-65% chance of ≥1 G4+ in
+the next 30 days, a storm actually followed **95-100%** of the time. The
+May 2024 Gannon cluster and October 2024 doublet were more productive than
+the 158-year-average productivity term anticipated — flagging a concrete
+structural extension for v9 (cycle-dependent kernel intensity).
+
+See [`FINDINGS_v8.md`](FINDINGS_v8.md) and
+[`scripts/analyze_hawkes_v8.py`](scripts/analyze_hawkes_v8.py).
+
+![v8 cumulative count: predicted vs observed](figures/19_v8_cumulative_count.png)
+
 ## v7 finding — extending the record to 1868 with the aa-index + bootstrap CIs
 
 Extended the analysis back **64 more years** by calibrating the aa geomagnetic
