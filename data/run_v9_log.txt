@@ -1,0 +1,90 @@
+[load] N=339 events, T=57708 days = 158.0 yr
+[ssn] S_bar full window = 83.84
+[ssn] S_bar train window= 85.48
+
+[fit-full] multi-start MLE on 1868-2025 (6 params)…
+  trial 1: μ0=0.00443 γ=0.988 α0=0.1641 β=0.6394 κ=+0.890 δ=+0.222  -LL=1833.52
+  trial 2: μ0=0.00443 γ=0.988 α0=0.1641 β=0.6394 κ=+0.890 δ=+0.222  -LL=1833.52
+  trial 3: μ0=0.00443 γ=0.988 α0=0.1641 β=0.6394 κ=+0.890 δ=+0.222  -LL=1833.52
+  trial 4: μ0=0.00443 γ=0.988 α0=0.1641 β=0.6394 κ=+0.890 δ=+0.222  -LL=1833.52
+  trial 5: μ0=0.00443 γ=0.988 α0=0.1641 β=0.6394 κ=+0.890 δ=+0.222  -LL=1833.52
+  trial 6: μ0=0.00443 γ=0.988 α0=0.1641 β=0.6394 κ=+0.890 δ=+0.222  -LL=1833.52
+  trial 7: μ0=0.00443 γ=0.988 α0=0.1641 β=0.6394 κ=+0.890 δ=+0.222  -LL=1833.52
+  fit time: 9.1s
+
+[MLE v9 on full data 1868-2025]
+  μ0    = 0.00443/d = 1.619/yr  at S=S̄
+  γ     = 0.9883
+  α0    = 0.1641
+  β     = 0.6394  → 1/β = 1.56 d
+  κ     = +0.8898  → exp(κ) = 2.435× G5/G4
+  δ     = +0.2221  → α scales as (S/S̄)^δ
+  log-L = -1833.52,  AIC = 3679.04
+  Implied α at solar min (S=20):  α(min)/α0 = 0.727
+  Implied α at solar max (S=180): α(max)/α0 = 1.185
+
+[MLE v7 (δ=0 restricted) on same data] log-L = -1834.16, AIC = 3678.31
+
+[LRT v9 vs v7] χ²(1) = 1.267,  p = 0.2604
+               ΔAIC = AIC_v9 - AIC_v7 = +0.73
+
+[fit-train] multi-start MLE on 1868-2015 ONLY (6 params)…
+  train: N=327 (G4 288, G5 39)  T=54056d
+  test:  N=12 (G4 11, G5 1)  T=3652d
+  train MLE: μ0=0.00459 γ=0.966 α0=0.1686 β=0.6254 κ=+0.862 δ=+0.211
+             log-L (train) = -1765.81,  fit time 8.0s
+
+[oos] held-out log-likelihood, 2016-2025
+  v9 held-out logL: -67.770
+  v8 (δ=0) held-out logL: -67.840
+  Poisson null logL: -83.386
+  Δ v9 - v8 = +0.070
+  Δ v9 - Poisson = +15.616  (+1.301/event)
+
+[oos] time-rescaling on test events
+  τ mean=1.179, var=1.095
+  KS p = 7.945e-01
+  lag-1 r = -0.205  p=5.46e-01
+
+[cumcount] Λ_end = 14.73, observed = 12
+  Poisson two-sided p = 0.581
+
+[rolling] 30-day-ahead forecasts (daily)
+  Brier = 0.0404, climatology = 0.0697, BSS = +0.420
+  reliability bins (pred mid → obs freq, n):
+    [0.0,0.1]: pred=0.03 obs=0.00 n=2199
+    [0.1,0.2]: pred=0.16 obs=0.03 n=979
+    [0.2,0.3]: pred=0.22 obs=0.05 n=205
+    [0.3,0.4]: pred=0.35 obs=0.95 n=149
+    [0.4,0.5]: pred=0.45 obs=0.94 n=34
+    [0.5,0.6]: pred=0.57 obs=1.00 n=31
+    [0.6,0.7]: pred=0.64 obs=1.00 n=26
+  v8 BSS for comparison: +0.426
+  v9 BSS - v8 BSS = -0.006
+
+[bootstrap] block bootstrap (block=365d, B=200) on FULL window…
+  bootstrap 50/200  (50 ok)  elapsed 71s
+  bootstrap 100/200  (100 ok)  elapsed 142s
+  bootstrap 150/200  (150 ok)  elapsed 213s
+  bootstrap 200/200  (200 ok)  elapsed 280s
+
+[bootstrap] 200/200 replicates succeeded (280s)
+
+   param         MLE        2.5%       97.5%          SE
+      μ0     0.00443     0.00357     0.00506     0.00040
+       γ     0.98834    -0.18296     0.17532     0.08691
+      α0     0.16414     0.14433     0.25615     0.02991
+       β     0.63936     0.39436     0.77863     0.09621
+       κ     0.88984     0.32791     1.41397     0.27461
+       δ     0.22209    -0.15935     0.21374     0.09767
+
+  Branching at solar minimum (S=20):
+     η(G4) ≈ 0.119,  η(G5) ≈ 0.291
+  Branching at solar maximum (S=180):
+     η(G4) ≈ 0.195,  η(G5) ≈ 0.474
+  Max/min ratio = 1.63× (productivity boost at solar max)
+
+[save] data/v9_summary.json
+[plots] figures 23-26 saved
+
+[done] v9 analysis complete.

@@ -1,0 +1,8 @@
+
+[postmortem] Forecast performance sliced by calendar window
+  all test forecast days          n=3623  pred=0.105  obs=0.075  Brier=0.040  BSS=+0.420
+  May 2024 Gannon window (Apr15-Jun30)  n=  77  pred=0.368  obs=0.351  Brier=0.080  BSS=+0.647
+  Oct 2024 cluster window (Sep15-Nov15)  n=  62  pred=0.378  obs=0.435  Brier=0.112  BSS=+0.543
+  all OTHER days                  n=3484  pred=0.094  obs=0.063  Brier=0.038  BSS=+0.351
+
+[plot] figures/27_v9_postmortem_2024.png  saved

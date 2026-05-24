@@ -22,6 +22,50 @@ A 94-year open replication of geomagnetic storm hazard rates with documented gri
 
 
 
+## v9 finding — cycle-dependent productivity: a negative result that re-interprets v8
+
+v8 found the model was "under-confident at high predicted probabilities" —
+when it warned of 30-60% chance of ≥1 G4+ in 30 days, observed frequency was
+95-100%. v9 tested the natural hypothesis: productivity scales with solar
+activity at the parent event, i.e. α(t_i) = α₀·(S(t_i)/S̄)^δ.
+
+**Result on full 1868-2025 (6-parameter MLE):**
+
+- δ = **+0.222** (point estimate goes the right direction)
+- LRT vs v7 (δ = 0):  χ²(1) = 1.27, **p = 0.26**
+- Bootstrap 95% CI on δ: **[−0.16, +0.21]** — contains zero
+- ΔAIC = **+0.73** — v7 is preferred by AIC; the extra parameter doesn't pay off
+- Out-of-sample BSS (v9): +0.420 vs (v8): +0.426 — essentially identical
+
+So cycle-dependent productivity is a real but weak effect (~1.6× peak-to-trough),
+and it isn't what was causing the v8 reliability gap.
+
+**The post-mortem is the real finding.** When we slice the test-window
+forecasts by *calendar period* instead of by predicted-probability bin:
+
+| Window | n days | mean pred | observed | BSS |
+|---|---|---|---|---|
+| May 2024 Gannon window (Apr 15 → Jun 30) | 77 | **0.37** | **0.35** | **+0.65** |
+| Oct 2024 cluster window (Sep 15 → Nov 15) | 62 | **0.38** | **0.44** | **+0.54** |
+| Everything else | 3,484 | 0.09 | 0.06 | +0.35 |
+
+**Inside the actual cluster windows the model was almost perfectly
+calibrated.** The forecast sat at ~60% throughout the lead-in to both 2024
+clusters, the events fired on cue, then the forecast correctly decayed as
+the 1.5-day excitation memory expired. See
+[`figures/27_v9_postmortem_2024.png`](figures/27_v9_postmortem_2024.png).
+
+The v8 reliability diagram's apparent "under-confidence at high p" was a
+**binning artifact**: the high-probability days were concentrated in the
+lead-in to a single cluster where the 30-day forecast window almost
+certainly contained the event — not because the model was wrong, but
+because the cluster signal correctly arrived where predicted.
+
+See [`FINDINGS_v9.md`](FINDINGS_v9.md) and
+[`scripts/analyze_hawkes_v9.py`](scripts/analyze_hawkes_v9.py).
+
+![v9 post-mortem: forecast inside the 2024 cluster windows](figures/27_v9_postmortem_2024.png)
+
 ## v8 finding — out-of-sample test: fit 1868-2015, predict 2016-2025
 
 The strictest credibility check possible: freeze the model on 1868-2015 data
