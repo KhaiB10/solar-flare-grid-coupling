@@ -1,0 +1,24 @@
+Geomagnetic G4+ wait-time clustering analysis
+=============================================
+
+G4+ days 1932-2025: 246
+Wait-times: n=245, mean=139.3d, median=46d
+
+AIC ranking (lower = better):
+  mixture_exp2       AIC=2658.3  ΔAIC=0.0
+  pareto             AIC=2669.3  ΔAIC=11.0
+  weibull            AIC=2680.9  ΔAIC=22.6
+  lognormal          AIC=2687.0  ΔAIC=28.7
+  gamma              AIC=2695.4  ΔAIC=37.1
+  exponential        AIC=2911.0  ΔAIC=252.7
+
+KS vs exponential: D=0.268, p=4.91e-16
+
+2-exponential mixture:
+  Fast component: weight=0.294, mean=1.8d (CME-cluster timescale)
+  Slow component: weight=0.706, mean=197d (background+Bartels)
+
+Cluster collapse (gap=7d):
+  Raw G4+ days: 246
+  G4+ clusters: 169
+  Collapse factor: 1.46x

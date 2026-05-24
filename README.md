@@ -20,6 +20,25 @@ A 94-year open replication of geomagnetic storm hazard rates with documented gri
 ![Monte Carlo: distribution of worst decadal ap](figures/03_monte_carlo_decadal.png)
 
 
+
+## v3 finding — G4+ storms are not Poisson
+
+After exploring six hypotheses across the 94-year record, the standout novel finding:
+**G4+ storm inter-arrival times are emphatically non-exponential.** A 2-component
+exponential mixture (fast 1.8-day component + slow 197-day component) beats the
+Poisson model by **ΔAIC = 252.7** — the kind of margin where the qualitative
+conclusion does not depend on the parametric choice. KS p-value vs exponential
+= 4.9×10⁻¹⁶.
+
+The 246 raw G4+ days in the record collapse into **169 independent CME-driven
+clusters**. Given one G4+ day, the probability of another within 5 days is **29%
+observed vs ~5% Poisson-expected** — a 5.9× elevation that matters for grid
+recovery planning during active periods.
+
+See [`FINDINGS_v3.md`](FINDINGS_v3.md) and [`scripts/analyze_clustering.py`](scripts/analyze_clustering.py).
+
+![G4+ wait-time distribution](figures/08_clustering_waittime.png)
+
 ## v2 addendum — solar-cycle-phase conditioning
 
 The original analysis treated storm arrivals as homogeneous Poisson. v2 splits the
