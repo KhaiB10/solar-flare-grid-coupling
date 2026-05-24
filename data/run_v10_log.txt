@@ -1,0 +1,34 @@
+[load] N=339 events, T=57708d = 158.0yr
+
+[rolling] computing OOS for each split year…
+  split 1980:  N_tr=249 N_te= 90 | μ0=1.64/yr γ=1.01 1/β=1.63d exp(κ)=2.24× | Λ_pred=95.7 vs obs=90 | KS p=0.78 | BSS=+0.419 | 3s
+  split 1985:  N_tr=264 N_te= 75 | μ0=1.69/yr γ=1.00 1/β=1.58d exp(κ)=2.29× | Λ_pred=81.8 vs obs=75 | KS p=0.82 | BSS=+0.417 | 2s
+  split 1990:  N_tr=277 N_te= 62 | μ0=1.72/yr γ=0.96 1/β=1.54d exp(κ)=2.45× | Λ_pred=66.8 vs obs=62 | KS p=0.86 | BSS=+0.422 | 3s
+  split 1995:  N_tr=294 N_te= 45 | μ0=1.73/yr γ=0.97 1/β=1.58d exp(κ)=2.45× | Λ_pred=53.7 vs obs=45 | KS p=0.69 | BSS=+0.413 | 4s
+  split 2000:  N_tr=304 N_te= 35 | μ0=1.73/yr γ=0.99 1/β=1.56d exp(κ)=2.42× | Λ_pred=42.2 vs obs=35 | KS p=0.70 | BSS=+0.405 | 4s
+  split 2005:  N_tr=324 N_te= 15 | μ0=1.79/yr γ=0.95 1/β=1.59d exp(κ)=2.36× | Λ_pred=26.4 vs obs=15 | KS p=0.14 | BSS=+0.334 | 3s
+  split 2010:  N_tr=325 N_te= 14 | μ0=1.73/yr γ=0.96 1/β=1.58d exp(κ)=2.37× | Λ_pred=24.4 vs obs=14 | KS p=0.21 | BSS=+0.329 | 4s
+  split 2015:  N_tr=327 N_te= 12 | μ0=1.68/yr γ=0.97 1/β=1.59d exp(κ)=2.39× | Λ_pred=14.7 vs obs=12 | KS p=0.84 | BSS=+0.426 | 4s
+
+[done] 8/8 splits done in 26s
+
+[summary]
+  n splits with valid BSS = 8
+  BSS mean   = +0.396
+  BSS median = +0.415
+  BSS IQR    = [+0.387, +0.420]
+  BSS range  = [+0.329, +0.426]
+  fraction BSS > 0 = 1.00
+  fraction BSS > 0.2 = 1.00
+  ΔlogL/event vs Poisson, median = +0.949, IQR [+0.854, +1.249]
+
+[parameter stability across splits]
+    mu0_per_yr: median=1.726  range [1.643, 1.788]
+         gamma: median=0.971  range [0.946, 1.012]
+      inv_beta: median=1.584  range [1.544, 1.631]
+     exp_kappa: median=2.377  range [2.235, 2.452]
+
+[save] data/v10_rolling_summary.json
+[plots] figures 28-29 saved
+
+[done] v10 complete

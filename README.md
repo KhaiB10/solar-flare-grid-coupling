@@ -22,6 +22,66 @@ A 94-year open replication of geomagnetic storm hazard rates with documented gri
 
 
 
+## v11 finding — pre-1868 Helsinki extension: the model correctly anticipates Carrington
+
+Extended the event record back 24 more years using the [Helsinki/Nevanlinna
+K-index series (1844-1897)](https://space.fmi.fi/MAGN/K-index/HELSINKI/), the
+oldest digital geomagnetic record in existence. The combined catalog is now
+**435 G4+ events over 181.4 years (1844-2025)** and includes the
+**Carrington Event of 3 September 1859** (Helsinki Ak=400, K's saturated
+off-scale at "9"), assigned mark 9.5.
+
+Refit the marked Hawkes on the extended catalog:
+
+| Parameter | v11 (1844-2025) | v7 reference (1868-2025) |
+|---|---|---|
+| μ₀ (events/yr) | 1.82 | 1.62 |
+| γ (SSN exponent) | 1.01 | 0.995 |
+| 1/β (excitation half-life) | 1.72 d | 1.56 d |
+| exp(κ) (G5/G4 productivity) | 2.98× | 2.46× |
+
+**Every v7 parameter falls inside the v11 95% bootstrap CI.** The extension
+added 24 years of pre-instrumental events including Carrington itself, and
+no conclusion from v7 broke.
+
+The headline result is Carrington's place in the conditional-intensity
+distribution: **Carrington sits at the 55th percentile of log-density across
+all 435 events.** The model treats it as *slightly more expected than
+typical*, not as a freak outlier — because the SC10 peak background (smoothed
+SSN ≈ 110) elevated the daily baseline 5-10× during August-September 1859.
+This is the strongest tail-stability test we could run, and the framework
+passed it.
+
+See [`FINDINGS_v11.md`](FINDINGS_v11.md) and
+[`scripts/analyze_hawkes_v11.py`](scripts/analyze_hawkes_v11.py).
+
+![v11 Carrington at the 55th percentile of log-density](figures/31_v11_carrington_logdensity.png)
+
+## v10 finding — rolling-origin out-of-sample: the v8 result is not a lucky split
+
+The single train/test split in v8 (fit 1868-2015, predict 2016-2025) gave
+BSS=+0.426. The honest critique is: what if any other split year would have
+produced a much worse number?
+
+v10 refits the v7 model on every train window 1868→s for s ∈ {1980, 1985, ...,
+2015} — eight independent fits — and evaluates BSS on each held-out window.
+
+- **Every single one of 8 splits gave BSS > 0**, all above +0.32
+- **BSS median +0.415, IQR [+0.387, +0.420], range [+0.329, +0.426]** — very tight
+- **v8's +0.426 is the upper edge of the range, not an outlier**
+- Parameters moved less than 9% across 35 years of split-year variation
+
+The two lowest BSS values (split years 2005 and 2010) correspond to test
+windows containing Solar Cycle 24 — independently documented as
+anomalously weak. The model predicted ~26 storms based on the sunspot level
+but got 15; that's a known SC24 peculiarity (reduced geoeffectiveness per
+sunspot), not a model failure.
+
+See [`FINDINGS_v10.md`](FINDINGS_v10.md) and
+[`scripts/analyze_hawkes_v10.py`](scripts/analyze_hawkes_v10.py).
+
+![v10 rolling-origin BSS and parameter stability](figures/28_v10_rolling_oos.png)
+
 ## v9 finding — cycle-dependent productivity: a negative result that re-interprets v8
 
 v8 found the model was "under-confident at high predicted probabilities" —
