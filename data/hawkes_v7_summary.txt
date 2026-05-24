@@ -1,0 +1,39 @@
+v7: Pre-1932 extension via aa-index — marked Hawkes 1868-2025
+============================================================
+
+Total events: 339 G4+ over 158.0 years
+  Pre-1932 (aa-derived): 93
+  1932+ (Kp-derived):    246
+  G5 days total: 40  (13 pre-1932 + 27 1932+)
+
+Rate-matched aa_max thresholds: G4+ ≥ 212, G5 ≥ 526
+Day-level agreement on G4+ in overlap: 78.0%
+
+S_bar (1868-2025) = 83.84  (v6 used 93.50 for 1932-2025)
+
+MLE parameters:
+  μ0 = 0.00443 /day (1.619/yr at S=S_bar)
+  γ  = 0.9951
+  α  = 0.1133
+  β  = 0.6424 /day,  1/β = 1.56 d
+  κ  = +0.8990, G5 productivity exp(κ) = 2.457×
+
+  η(G4) = 0.1763
+  η(G5) = 0.4332
+
+Log-likelihood: -1834.16,  AIC = 3678.31
+GOF: KS p = 3.680e-01,  lag-1 autocorr = +0.015 (p=7.86e-01)
+
+Block-bootstrap 95% CIs (B=200):
+  μ0: [0.00357, 0.00505]
+  γ: [-0.17806, 0.17691]
+  α: [0.07042, 0.15871]
+  β: [0.39449, 0.78074]
+  κ: [0.32143, 1.41296]
+
+  Derived 95% CIs:
+  μ0/yr:    [1.305, 1.843]
+  1/β (d):  [1.28, 2.54]
+  η(G4):    [0.145, 0.249]
+  η(G5):    [0.278, 0.647]
+  exp(κ):   [1.38, 4.11]

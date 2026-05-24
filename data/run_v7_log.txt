@@ -1,0 +1,80 @@
+[load] aa: 52,230 days, 1868-01-01 → 2010-12-31
+[load] kp: 34,334 days, 1932-01-01 → 2025-12-31
+[cal] Overlap: 28,855 days, 232 G4+ (Kp), 26 G5 (Kp)
+[cal] Rate-matched aa_max thresholds: G4+ ≥ 212,  G5 ≥ 526
+[cal] Day-level agreement on G4+ identification: 181/232 = 78.0%
+
+[merge] Total events 1868-2025: 339
+        Pre-1932 (aa-derived):  93  (80 G4, 13 G5)
+        1932+ (Kp-derived):     246  (219 G4-class, 27 G5)
+        Observation window: 57,708 days = 158.0 years
+        Long-run G4+ rate: 2.15 events/yr  (v6 used 2.62/yr over 1932-2025)
+        N = 339, T = 57708 days
+[ssn] Window-mean smoothed SSN 1868-2025 = 83.84  (v6 used 93.50 for 1932-2025)
+
+[fit] multi-start MLE on extended 1868-2025 series…
+  trial 1: μ0=0.00443 γ=0.995 α=0.1133 β=0.6424 κ=+0.899  -LL=1834.16
+  trial 2: μ0=0.00443 γ=0.995 α=0.1133 β=0.6424 κ=+0.899  -LL=1834.16
+  trial 3: μ0=0.00443 γ=0.995 α=0.1133 β=0.6424 κ=+0.899  -LL=1834.16
+  trial 4: μ0=0.00443 γ=0.995 α=0.1133 β=0.6424 κ=+0.899  -LL=1834.16
+  trial 5: μ0=0.00443 γ=0.995 α=0.1133 β=0.6424 κ=+0.899  -LL=1834.16
+  trial 6: μ0=0.00443 γ=0.995 α=0.1133 β=0.6424 κ=+0.899  -LL=1834.16
+  fit time: 2.3s
+
+[MLE v7]:
+  μ0 = 0.00443 /day = 1.619/yr at S=S_bar
+  γ  = 0.9951
+  α  = 0.1133
+  β  = 0.6424  → 1/β = 1.56 d
+  κ  = +0.8990  → G5 productivity = exp(κ) = 2.457×
+  η(G4) = 0.176,  η(G5) = 0.433
+  log-L = -1834.16, AIC = 3678.31
+  Reference Poisson: λ = 2.15/yr,  log-L = -2080.49,  ΔAIC vs v7 = -484.7
+
+[GOF] τ: mean=0.996, var=1.152
+     KS p=3.680e-01,  lag-1 r=+0.015 p=7.86e-01
+
+[bootstrap] block bootstrap CIs (block=365d, B=200)…
+  bootstrap 50/200  (50 ok)  elapsed 18s
+  bootstrap 100/200  (100 ok)  elapsed 36s
+  bootstrap 150/200  (150 ok)  elapsed 54s
+  bootstrap 200/200  (200 ok)  elapsed 72s
+
+[bootstrap] 200/200 replicates succeeded (72s total)
+
+   Param         MLE        2.5%       97.5%          SE
+      μ0     0.00443     0.00357     0.00505     0.00040
+       γ     0.99507    -0.17806     0.17691     0.08771
+       α     0.11327     0.07042     0.15871     0.02207
+       β     0.64239     0.39449     0.78074     0.09632
+       κ     0.89896     0.32143     1.41296     0.26999
+
+  Derived quantities (95% CI):
+    μ0 (events/yr at mean SSN): 1.619   CI [1.305, 1.843]
+    1/β (excitation half-life, days): 1.56   CI [1.28, 2.54]
+    η(G4): 0.176   CI [0.145, 0.249]
+    η(G5): 0.433   CI [0.278, 0.647]
+    G5 productivity exp(κ): 2.46   CI [1.38, 4.11]
+
+[stability] solar-cycle leave-one-out: refit dropping each cycle
+   leave-out        μ0       γ     1/β    η(G4)    η(G5)   exp(κ)
+     SC  11      1.53   0.918    1.61    0.174    0.459     2.64
+     SC  12      1.53   1.052    1.54    0.187    0.404     2.16
+     SC  13      1.51   1.012    1.58    0.178    0.460     2.59
+     SC  14      1.53   1.041    1.60    0.175    0.453     2.58
+     SC  15      1.56   1.012    1.60    0.178    0.418     2.34
+     SC  16      1.50   1.021    1.62    0.179    0.444     2.48
+     SC  17      1.51   0.988    1.38    0.167    0.426     2.55
+     SC  18      1.44   0.999    1.68    0.183    0.426     2.33
+     SC  19      1.43   0.843    1.63    0.171    0.438     2.57
+     SC  20      1.48   1.002    1.56    0.186    0.432     2.32
+     SC  21      1.46   1.032    1.56    0.184    0.436     2.37
+     SC  22      1.50   0.955    1.58    0.179    0.423     2.36
+     SC  23      1.45   1.026    1.57    0.180    0.453     2.52
+     SC  24      1.59   1.018    1.56    0.179    0.434     2.42
+     SC  25      1.57   0.979    1.60    0.180    0.430     2.38
+
+[fig] 17_v7_extended_events.png
+[fig] 18_v7_bootstrap_cis.png
+
+[done] v7 extended-record marked Hawkes complete

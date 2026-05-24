@@ -22,6 +22,39 @@ A 94-year open replication of geomagnetic storm hazard rates with documented gri
 
 
 
+## v7 finding — extending the record to 1868 with the aa-index + bootstrap CIs
+
+Extended the analysis back **64 more years** by calibrating the aa geomagnetic
+index (NCEI, 1868–2010) against the GFZ Kp record over their 1932–2010
+overlap. Result: a 158-year, 339-event marked Hawkes fit with proper
+uncertainty quantification.
+
+**Block-bootstrap 95% CIs (B=200, 365-day blocks):**
+
+- Background rate μ₀: **1.62 events/yr** at mean-cycle SSN, CI **[1.31, 1.84]**
+- Excitation half-life 1/β: **1.56 d**, CI **[1.28, 2.54]**
+- G4 branching ratio η(G4) = **0.176**, CI **[0.145, 0.249]**
+- G5 branching ratio η(G5) = **0.433**, CI **[0.278, 0.647]**
+- **G5 productivity multiplier exp(κ) = 2.46×**, CI **[1.38, 4.11]**
+
+The v6 finding (G5s produce ~2.7× more aftershocks than G4s) survives: the 95% CI
+is comfortably bounded away from 1.0. **Every v6 point estimate falls inside the
+v7 confidence interval.**
+
+**Leave-one-cycle-out cross-validation** (refitting 15 times, dropping one
+solar cycle each time): all parameters stay inside their bootstrap CIs.
+The model is not propped up by any single cycle.
+
+The extended record now includes the **May 1921 New York Railroad storm**
+(aa_max = 715, the all-time maximum), the **1909 Mount Hamilton storm**,
+the **1903 G5 cluster**, and the **1882 Stewart storm** — historical analogues
+for a near-Carrington-class event with a modern grid exposure profile.
+
+See [`FINDINGS_v7.md`](FINDINGS_v7.md) and
+[`scripts/analyze_hawkes_v7.py`](scripts/analyze_hawkes_v7.py).
+
+![Extended event series 1868–2025](figures/17_v7_extended_events.png)
+
 ## v6 finding — marked Hawkes: a G5 punches ~2.7× harder than a G4
 
 Think of it as the seismology productivity law ("a magnitude-7 quake produces
