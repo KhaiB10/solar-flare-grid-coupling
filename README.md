@@ -22,6 +22,46 @@ A 94-year open replication of geomagnetic storm hazard rates with documented gri
 
 
 
+## v14 finding — Omori-Utsu power-law kernel rescues the SC24 splits
+
+Replaced v7-v12's exponential excitation kernel `φ(τ) = α exp(-βτ)` with the
+**Omori-Utsu power law** `φ(τ) = α (τ + c)^(-p)`, the earthquake-seismology
+standard for aftershock decay. Background `S(t)` (daily F10.7) unchanged from v12.
+
+| Metric | v14 (Omori) | v12 (exponential) | Δ |
+|---|---|---|---|
+| log-L | **-2316.09** | -2318.61 | +2.52 nats |
+| AIC (6 vs 5 params) | **4644.17** | 4647.21 | **-3.05** |
+| BSS median (8 rolling splits) | **+0.436** | +0.426 | +0.010 |
+| BSS range | **[+0.394, +0.460]** | [+0.311, +0.438] | tighter |
+| half-amplitude time | 0.93 d | 1.72 d | shorter |
+| **half-integral time** | **5.77 d** | 1.72 d | **3.4× longer** |
+| branching ratio n | **0.41** | 0.16 | matches literature |
+
+Omori wins on AIC **even after paying for the extra parameter**, and beats v12
+on **6 of 8 rolling-origin splits**. The biggest improvements (BSS +0.065 and
++0.083) are exactly on the SC24-era splits (2005, 2010) where v12
+underperformed v10. Power-law tails rescue the cycle-24 weakness.
+
+The key physical insight: half the triggering integral of a v14 aftershock is
+still ahead of you **~6 days** after the original event, not 1.7 days as the
+exponential implied. This says **grid operators should hold elevated
+storm-clustering alert for ~2 weeks, not 5-7 days**, after any G4+ event.
+
+The Omori kernel did *not* absorb the 27-day Carrington-rotation residual
+signal (residual SNR went 1.78 → 1.96 — essentially unchanged or slightly up).
+Combined with v12's finding that swapping smoothed-SSN for daily-F10.7 also
+left this signal untouched, the 27-day modulation must live in **the mark
+distribution** (active-region CME magnitude correlations as the region
+rotates) rather than the background or kernel shape. **v13 (conditional
+mark distribution) is now the natural next experiment.**
+
+See [`FINDINGS_v14.md`](FINDINGS_v14.md) and
+[`scripts/analyze_hawkes_v14.py`](scripts/analyze_hawkes_v14.py).
+
+![v14 Omori vs v12 exponential kernel shape](figures/40_v14_kernel_shape.png)
+![v14 vs v12 rolling-origin BSS by split year](figures/42_v14_rolling_bss.png)
+
 ## v12 finding — daily F10.7 radio flux improves both AIC and out-of-sample BSS
 
 Replaced the smoothed monthly sunspot number (used as the marked-Hawkes productivity

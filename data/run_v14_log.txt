@@ -1,0 +1,76 @@
+[1] loading v12 spliced daily background S(t)…
+  S_daily: 66079 days, 1844-07-01 → 2025-05-31, S̄=118.23 sfu
+
+[2] loading event catalog 1844-2025…
+  434 events in window 1844-07-01 → 2025-05-31 (dropped 1)
+  T_obs = 66078 d = 180.91 yr
+
+[3] multi-start MLE on 1844-2025 with Omori-Utsu kernel…
+  trial 1: μ0=0.00309 γ=2.422 α=0.1682 c=1.504 p=1.440 κ=+0.822  -LL=2316.09  (2s)
+  trial 2: μ0=0.00309 γ=2.422 α=0.1682 c=1.504 p=1.440 κ=+0.822  -LL=2316.09  (3s)
+  trial 3: μ0=0.00309 γ=2.422 α=0.1682 c=1.504 p=1.440 κ=+0.822  -LL=2316.09  (2s)
+  trial 4: μ0=0.00309 γ=2.422 α=0.1682 c=1.504 p=1.440 κ=+0.822  -LL=2316.09  (2s)
+
+[v14 MLE on 1844-2025, Omori kernel]
+  μ0    = 0.00309/d = 1.130/yr at S̄=118.23 sfu
+  γ     = 2.4217
+  α     = 0.1682
+  c     = 1.5037 d
+  p     = 1.4396
+  κ     = +0.8216  → exp(κ) = 2.274×
+  log-L = -2316.09,  AIC = 4644.17
+  fit time 9.1s
+
+  ΔlogL vs v12 (exp kernel):    +2.52
+  ΔAIC vs v12 (penalizes p):     -3.05
+  (negative ΔAIC means v14 is better despite extra parameter)
+  kernel half-amplitude time: 0.93 d
+  kernel half-integral time:  5.77 d  (v12 exp half-life: 1.72 d)
+  branching ratio n = α<g> ∫₀^∞ (s+c)^(-p) ds = 0.414
+
+[4] rolling-origin OOS with Omori kernel…
+/home/user/workspace/solar-flare-grid-coupling/scripts/analyze_hawkes_v14.py:108: RuntimeWarning: invalid value encountered in power
+  return ((tau_end + c) ** (1.0 - p) - c ** (1.0 - p)) / (1.0 - p)
+  split 1980: BSS=+0.430, ΔlogL/ev=+0.679, μ0=0.00049, c=1.03d, p=1.06
+  split 1985: BSS=+0.436, ΔlogL/ev=+0.802, μ0=0.00076, c=1.04d, p=1.08
+  split 1990: BSS=+0.436, ΔlogL/ev=+0.888, μ0=0.00098, c=1.01d, p=1.10
+  split 1995: BSS=+0.448, ΔlogL/ev=+1.015, μ0=0.00134, c=1.06d, p=1.14
+  split 2000: BSS=+0.460, ΔlogL/ev=+1.124, μ0=0.00162, c=1.10d, p=1.16
+  split 2005: BSS=+0.416, ΔlogL/ev=+1.745, μ0=0.00216, c=1.17d, p=1.23
+  split 2010: BSS=+0.394, ΔlogL/ev=+1.937, μ0=0.00238, c=1.25d, p=1.27
+  split 2015: BSS=+0.444, ΔlogL/ev=+1.542, μ0=0.00257, c=1.33d, p=1.31
+
+  BSS across 8 splits (v14): median +0.436, IQR [+0.427, +0.445], range [+0.394, +0.460]
+  v12 ref: median +0.426, range [+0.311, +0.438]
+  v10 ref: median +0.404, range [+0.329, +0.426]
+
+[5] block bootstrap B=200, block=365d…
+  bootstrap 50/200 (50 ok, 138s)
+  bootstrap 100/200 (100 ok, 291s)
+  bootstrap 150/200 (150 ok, 430s)
+  bootstrap 200/200 (200 ok, 570s)
+  bootstrap complete: 200/200 ok
+
+      param          MLE         2.5%        97.5%
+        mu0      0.00309      0.00171      0.00381
+      gamma      2.42170     -0.53924      0.58079
+      alpha      0.16821      0.09531      0.24929
+          c      1.50370      1.00107      1.80442
+          p      1.43964      1.12691      1.49986
+      kappa      0.82165      0.30008      1.14079
+
+[6] 27-day rotation diagnostic via Lomb-Scargle on residuals…
+  27-day band peak power (resid): v12=0.0212, v14=0.0235
+  background median (resid):     v12=0.0119, v14=0.0120
+  signal-to-background ratio:    v12=1.78, v14=1.96
+  → If v14 SNR < v12 SNR, the Omori kernel absorbed the 27-day signal.
+
+[7] generating plots…
+  saved figures 40-43
+
+[done] summary written to data/v14_summary.json
+  ΔlogL vs v12 = +2.52
+  ΔAIC vs v12  = -3.05
+  v14 BSS median = +0.436  (v12 was +0.426)
+  27d SNR  v12 → v14: 1.78 → 1.96
+EXIT=0
