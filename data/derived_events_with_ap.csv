@@ -1,0 +1,8 @@
+date,event_name,min_dst_nT,max_kp,grid_impact,region,source,ap_max,Kp_max
+1989-03-13,Quebec Blackout,-589,9.0,Hydro-Quebec system collapse; ~6M people without power for 9h; 7 static-VAR compensators tripped; transformers damaged,Quebec Canada,NASA/Boteler 2019; NERC 1990 report,400,9.0
+2003-10-29,Halloween Storms (Malmö),-383,9.0,Sydkraft Malmö Sweden 50-min blackout; transformer damage in South Africa (Eskom),Sweden / South Africa,Pulkkinen et al. 2005,400,9.0
+2003-10-30,Halloween Storms continued,-401,9.0,Continued GIC; satellite damage; HV transformer degradation reported in multiple US utilities,North America / Europe,Kappenman 2010,400,9.0
+2015-03-17,St. Patrick's Day Storm,-223,8.0,Largest storm of Solar Cycle 24; GIC observed in Finnish & US pipelines and transformers; no major outages,Global,NOAA SWPC; Zhang et al. 2016,179,7.667
+2017-09-08,September 2017 Storm,-142,8.0,GIC reported across multiple US utilities during hurricane season; minor transformer heating,North America,NOAA SWPC,236,8.333
+2024-05-10,Gannon Storm (Mother's Day),-412,9.0,First G5 since 2003; widespread GIC in NA & Europe; precision-ag GPS failures cost US farmers est. $500M; no major blackouts,Global,NOAA SWPC; AGU 2024 reports,300,8.667
+2024-10-10,October 2024 G4 storm,-335,8.7,Strong GIC observed; minor utility-side anomalies reported,Global,NOAA SWPC,300,8.667

@@ -1,0 +1,12 @@
+Records: 274,672
+Daily aggregates: 34,334
+Years covered: 94
+GPD threshold ap: 80.0
+GPD shape (xi): -0.0237
+GPD scale: 65.2896
+Exceedance rate (per year): 16.0426
+P(>=1 Carrington-class in decade): 0.5846
+P(>=1 1.5x-Carrington in decade): 0.0247
+Median decadal worst ap: 413
+95th-pct decadal worst ap: 561
+99th-pct decadal worst ap: 650
