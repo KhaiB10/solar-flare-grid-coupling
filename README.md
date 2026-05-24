@@ -22,6 +22,44 @@ A 94-year open replication of geomagnetic storm hazard rates with documented gri
 
 
 
+## v12 finding — daily F10.7 radio flux improves both AIC and out-of-sample BSS
+
+Replaced the smoothed monthly sunspot number (used as the marked-Hawkes productivity
+driver in v7-v11) with **daily F10.7 cm solar radio flux** from the
+[GFZ Potsdam Kp/F107 series](https://kp.gfz.de/app/files/Kp_ap_Ap_SN_F107_since_1932.txt)
+(Penticton/Ottawa NRC, 1947-02-14 onward). Pre-1947 days are filled by linear
+splice F10.7 ≈ 61.5 + 0.667 × SSN_smoothed (r = 0.880 over 28,299 overlap days).
+
+With the same 5 parameters and the same 434-event 1844-2025 catalog:
+
+| Metric | v12 (daily F10.7) | v11 (smoothed SSN) | Δ |
+|---|---|---|---|
+| log-L | **-2318.61** | -2329.02 | +10.41 nats |
+| AIC | **4647.21** | 4668.04 | **-20.83** |
+| BSS median (8 rolling splits) | **+0.426** | +0.404 (v10 ref) | +0.022 |
+| 1/β (excitation half-life) | 1.72 d | 1.72 d | 0 |
+| exp(κ) (G5/G4 productivity) | 2.95× | 2.98× | -0.03× |
+
+v12 beats v10 on **6 of 8 rolling-origin splits**. This is the first version
+across v7-v12 where we improved both internal AIC and out-of-sample BSS on the
+same model swap, with no extra parameters.
+
+The γ exponent jumps from 1.0 to 2.18 — *not* a contradiction. Daily F10.7 has
+different variance properties than smoothed SSN, so the MLE re-expresses the
+same empirical cycle-modulation of storm rate with a steeper exponent against
+a narrower dynamic range. Both models predict the same long-term rate at the
+cycle peak and minimum.
+
+The 27-day Carrington-rotation residual signal, which we hoped daily F10.7
+would absorb into the background, was **unchanged** (SNR 10.34 → 10.39). That
+signal lives in the excitation kernel, not the background — pointing to v14
+(Omori power-law kernel) as the next experiment.
+
+See [`FINDINGS_v12.md`](FINDINGS_v12.md) and
+[`scripts/analyze_hawkes_v12.py`](scripts/analyze_hawkes_v12.py).
+
+![v12 BSS by rolling-origin split, v10 vs v12](figures/35_v12_rolling_bss.png)
+
 ## v11 finding — pre-1868 Helsinki extension: the model correctly anticipates Carrington
 
 Extended the event record back 24 more years using the [Helsinki/Nevanlinna

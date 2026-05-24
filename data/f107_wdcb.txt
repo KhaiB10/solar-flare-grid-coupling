@@ -1,0 +1,81 @@
+PENTICTON SOLAR RADIO FLUX VALUES (from SGD Explanation of Data Reports)
+
+Daily Solar Flux Values - Penticton -- Daily measurements of the integrated 
+emission from the solar disc at 2800MHz (10.7cm wavelength) have been made by 
+the National Research Council of Canada since 1947. Until the May 31, 1991 
+the observations were made at the Algonquin Radio Observatory, near Ottawa. 
+Over 1990-1991 the program was transferred to the Dominion Radio Astrophysical 
+Observatory, near Penticton, British Columbia. From June 1, 1991, the 
+data have originated from that location.
+
+Accurate spot determinations of the 10.7cm flux (actually a flux density) are 
+made at local noon; previously 1700UT at Ottawa and now 2000UT at Penticton.  
+The flux monitors have 1.8m paraboloidal antennas, which are equally sensitive 
+to all points on the solar disc, and are equipped to measure emissions which 
+are linearly-polarized in the North-South sense.  In calculating the 10.7cm 
+flux, we assume that the integrated emission from the solar disc at that 
+wavelength has no net linear polarization.  The flux values are expressed in 
+solar flux units (1 s.f.u. = 10-22 W*m-2*Hz-1 ). The characteristics of the 
+observations are surveyed in "Solar Radio Emission at 10.7cm", by A.E. 
+Covington [J. Royal Astron. Soc. Canada, Vol 63, 125, 1969].
+
+The data are tabulated in two forms: the "observed flux" (S), and the 
+"adjusted flux" (Sa). The former are the actual measured  values, and are 
+affected by the changing distance between the Earth and Sun throughout the 
+year, whereas the latter are scaled to a standard distance of 1 AU. The 
+"observed flux" values are useful in ionospheric physics and other terrestrial 
+consequences of solar activity. The "adjusted fluxes" are more purely 
+descriptive of the Sun's behaviour. Graphs showing the monthly mean 
+adjusted flux and monthly high and low values are shown in SGD Explanation
+of Data Reports.
+
+Over long periods of time, the r.m.s. relative errors are not more than plus 
+or minus 1% or one flux unit, whichever is larger. The absolute accuracy is a 
+more complicated issue. Through extensive recalibrations and comparisons 
+between observatories between 1951 and 1971, best consistency between the 
+10.7cm flux and observations at other wavelengths is obtained by multiplying 
+the 10.7cm flux data by 0.9. Fluxes scaled in this way are designated URSI 
+Series D. They are not included in these reports but are easily calculated. 
+The history of the solar flux calibration process is reviewed by H. Tanaka of 
+the Research Institute of Atmospherics, Nagoya University, as convener of then 
+Comm. 5 of URSI [H. Tanaka et al., "Absolute calibration of solar radio flux 
+density in the microwave region", Solar Physics, Vol. 29, 243, 1973].
+
+Depending upon the level of activity and possibly the phase of the solar 
+cycle, the fluxes contain contributions from active regions, areas of 
+enhanced emission outside active regions, and a constant contribution from 
+the quiet sun. The sources and emission mechanisms contributing to the 10.7cm 
+flux are discussed by K.F. Tapping ["Recent Solar Radio Astronomy at 
+Centimeter Wavelengths: The Temporal Variability of the 10.7-cm Flux", J. 
+Geophys. Res., Vol. 92, D1, 829-838, 1987].  The flux determinations sometimes 
+contain contributions from transient events.  Using empirical criteria these 
+can be filtered from the data, although the degree to which they can be 
+removed varies from example to example. However, a study by K.F. Tapping and 
+D.P. Charrois ["Limits to the Accuracy of the 10.7cm Flux", Solar Physics, 
+1994, In Press], suggests that in general the spot measurements are within 1% 
+of the flux averaged over whole observing days after transient events have 
+been eliminated.
+
+The quiet sun level is the flux density which would be observed in the absence 
+of activity. Extrapolation to zero of plots of the 10.7cm flux against other 
+activity indices such as plage area or total photospheric magnetic flux in 
+active regions suggest a quiet sun flux density of about 64 s.f.u. This is 
+rarely attained. Even at solar minimum there is usually some activity; the 
+lowest observed fluxes are usually 65-67 s.f.u. The observed excess of the 
+10.7cm flux over the quiet sun level is known as the slowly-varying (S-) 
+component.
+
+The numerical data for the graph shown above and a selected bibliography are 
+given in Algonquin Radio Observatory Report No. 5, "A Working Collection of 
+Daily 2800 MHz Solar Flux Values 1946-1976" by A.E.  Covington, Herzberg 
+Institute of Astrophysics N.R.C. of Canada, Ottawa, Canada.
+
+These solar radio noise indices are published in accordance with a CCIR 
+Recommendation originally from the Xth Plenary Assembly, Geneva, 1963 
+(maintained at XIth through XIVth Plenaries), which states "that the 
+monthly-mean value of solar radio-noise flux at wave- lengths near 10 cm 
+should be adopted as the index to be used for predicting monthly median 
+values of foE and foF1, for dates certainly up to 6, and perhaps up to 12 
+months ahead of the date of the last observed values of solar radio-noise 
+flux."
+

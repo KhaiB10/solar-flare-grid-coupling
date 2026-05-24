@@ -1,0 +1,86 @@
+[1] parsing GFZ Kp+F10.7 since 1932…
+  loaded 34477 daily rows, F107 valid: 28299
+  date range: 1932-01-01 → 2026-05-23
+  F107adj range (valid): 52.5 → 924.4 sfu
+
+[2] loading SILSO smoothed SSN for pre-1947 splice…
+  F107adj = 61.547 + 0.6666 * ssn_smooth  (n=28299, r=0.880, R²=0.774)
+  At ssn_smooth=0:   F107adj = 61.5 sfu
+  At ssn_smooth=100: F107adj = 128.2 sfu
+  At ssn_smooth=200: F107adj = 194.9 sfu
+
+[3] building spliced daily S_daily(t)…
+  66079 days from 1844-07-01 to 2025-05-31
+  pre-1947 days using SSN proxy: 37482
+  post-1947 missing F10.7 days filled with proxy: 654
+  S_daily range: 52.5 → 924.4 sfu
+  S_daily mean (full window): 118.43
+  clipped 122 burst-contaminated days at F_CLIP=300.0 sfu
+  5-day rolling median applied; new range 63.3 → 300.0 sfu
+  S_bar = 118.235 sfu
+
+[4] loading v11 event catalog 1844-2025…
+  raw catalog: 435 events; in-window 434 from 1846-08-07 → 2025-01-01
+  (dropped 1 event(s) outside [1844-07-01, 2025-05-31])
+  T_obs = 66078 d = 180.91 yr
+  marks: G4 = 393, G5 = 40, Carrington-class = 1
+
+[5] multi-start MLE on 1844-2025 with daily F10.7 background…
+  [resume] loading MLE from checkpoint
+  [resume] best.x = [0.00423348 2.18262614 0.09506689 0.58255521 1.08068473]  -LL=2318.61
+
+[v12 MLE on 1844-2025]
+  μ0    = 0.00423/d = 1.546/yr at S̄=118.23 sfu
+  γ     = 2.1826
+  α     = 0.0951
+  β     = 0.5826  → 1/β = 1.72 d
+  κ     = +1.0807  → exp(κ) = 2.947×
+  log-L = -2318.61,  AIC = 4647.21
+  fit time 0.0s
+
+  ΔlogL vs v11 (smoothed SSN): +10.41
+  ΔAIC vs v11:                  -20.83
+  (negative ΔAIC means v12 is better)
+
+[6] rolling-origin OOS with F10.7 background…
+  split 1980: BSS=+0.436, ΔlogL/ev=+0.866, μ0=0.00344, 1/β=2.02d, exp(κ)=2.75×
+  split 1985: BSS=+0.438, ΔlogL/ev=+0.954, μ0=0.00356, 1/β=1.89d, exp(κ)=2.79×
+  split 1990: BSS=+0.430, ΔlogL/ev=+1.001, μ0=0.00368, 1/β=1.81d, exp(κ)=2.87×
+  split 1995: BSS=+0.422, ΔlogL/ev=+1.090, μ0=0.00379, 1/β=1.84d, exp(κ)=2.89×
+  split 2000: BSS=+0.432, ΔlogL/ev=+1.164, μ0=0.00390, 1/β=1.82d, exp(κ)=2.96×
+  split 2005: BSS=+0.351, ΔlogL/ev=+1.615, μ0=0.00403, 1/β=1.73d, exp(κ)=2.84×
+  split 2010: BSS=+0.311, ΔlogL/ev=+1.814, μ0=0.00412, 1/β=1.78d, exp(κ)=2.84×
+  split 2015: BSS=+0.406, ΔlogL/ev=+1.551, μ0=0.00414, 1/β=1.78d, exp(κ)=2.86×
+
+  BSS across 8 splits (v12): median +0.426, IQR [+0.392, +0.433], range [+0.311, +0.438]
+  v10 reference: median +0.404, range [+0.329, +0.426]
+
+[7] block bootstrap B=200, block=365d…
+  bootstrap 50/200 (50 ok, 21s)
+  bootstrap 100/200 (100 ok, 42s)
+  bootstrap 150/200 (150 ok, 62s)
+  bootstrap 200/200 (200 ok, 82s)
+
+   param         MLE        2.5%       97.5%
+     mu0     0.00423     0.00406     0.00564
+   gamma     2.18263    -0.38666     0.45665
+   alpha     0.09507     0.06856     0.12670
+    beta     0.58256     0.34422     0.64349
+   kappa     1.08068     0.55504     1.43220
+  1/β         1.717       1.554       2.905
+  exp(κ)      2.947       1.742       4.188
+
+[8] 27-day rotation diagnostic via Lomb-Scargle on residuals…
+  27-day band peak power (resid): v11=0.0855, v12=0.0858
+  background median (resid):     v11=0.0083, v12=0.0083
+  signal-to-background ratio:    v11=10.34, v12=10.39
+  → If v12 ratio is lower, F10.7 absorbed some 27-day modulation.
+
+[9] generating plots…
+  saved figures 33-36
+
+[done] summary written to data/v12_summary.json
+  ΔlogL = +10.41
+  v12 BSS median  = +0.426  (v10 was +0.404)
+  27d SNR  v11 → v12: 10.34 → 10.39
+EXIT=0
