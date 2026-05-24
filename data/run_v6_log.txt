@@ -1,0 +1,59 @@
+[load] N = 246 G4+ events  (27 G5,  219 G4)
+       Kp_max distribution: 8.0=79  8.33=81  8.67=59  9.0=27
+[ssn] S_bar = 93.50
+
+[fit] multi-start MLE for marked Hawkes (μ0, γ, α, β, κ)…
+  trial 1: μ0=0.00549 γ=0.845 α=0.1113 β=0.6520 κ=+1.005  -LL=1292.01
+  trial 2: μ0=0.00549 γ=0.845 α=0.1113 β=0.6520 κ=+1.005  -LL=1292.01
+  trial 3: μ0=0.00549 γ=0.845 α=0.1113 β=0.6520 κ=+1.005  -LL=1292.01
+  trial 4: μ0=0.00549 γ=0.845 α=0.1113 β=0.6520 κ=+1.005  -LL=1292.01
+  trial 5: μ0=0.00549 γ=0.845 α=0.1113 β=0.6520 κ=+1.005  -LL=1292.01
+  trial 6: μ0=0.00549 γ=0.845 α=0.1113 β=0.6520 κ=+1.005  -LL=1292.01
+  trial 7: μ0=0.00549 γ=0.845 α=0.1113 β=0.6520 κ=+1.005  -LL=1292.01
+  trial 8: μ0=0.00549 γ=0.845 α=0.1113 β=0.6520 κ=+1.005  -LL=1292.01
+
+[MLE v6] best fit:
+  μ0 = 0.00549 /day  (2.005/yr at S = S_bar)
+  γ  = 0.845
+  α  = 0.1113
+  β  = 0.6520 /day  (1/β = 1.53 d)
+  κ  = +1.0047  → G5 productivity factor exp(κ) = 2.731×
+  branching ratio η for G4 parent = α/β       = 0.171
+  branching ratio η for G5 parent = α e^κ / β = 0.466
+  log-likelihood = -1292.01,  AIC = 2594.01
+
+[compare] refitting v5 (κ ≡ 0)…
+  v6: LL=-1292.01  AIC=2594.01
+  v5: LL=-1295.11  AIC=2598.21
+  ΔAIC (v6 − v5) = -4.20   (negative ⇒ v6 wins)
+  LR statistic = 6.20,  χ²(1) p = 1.279e-02
+
+[GOF] time-rescaling residuals…
+  v6 τ: mean=1.001, var=1.184
+  v6 KS vs Exp(1): D=0.049, p=5.703e-01
+  v6 lag-1 autocorr: r=+0.008, p=9.00e-01
+
+[empirical] aftershock window (next 7 days), by parent mark:
+  parent Kp=8.00  (n= 79):  mean followers in next 7 d = 0.291  sd = 0.619  max = 3
+  parent Kp=8.33  (n= 81):  mean followers in next 7 d = 0.321  sd = 0.605  max = 3
+  parent Kp=8.67  (n= 59):  mean followers in next 7 d = 0.525  sd = 0.698  max = 3
+  parent Kp=9.00  (n= 27):  mean followers in next 7 d = 0.667  sd = 0.943  max = 4
+
+[sim] direct-offspring count by parent magnitude:
+  Kp parent = 8.00:  E[direct offspring] = 0.172  P(≥1 follower) = 0.157  P(≥3 followers) = 0.001
+  Kp parent = 8.33:  E[direct offspring] = 0.236  P(≥1 follower) = 0.211  P(≥3 followers) = 0.002
+  Kp parent = 8.67:  E[direct offspring] = 0.333  P(≥1 follower) = 0.283  P(≥3 followers) = 0.005
+  Kp parent = 9.00:  E[direct offspring] = 0.464  P(≥1 follower) = 0.370  P(≥3 followers) = 0.012
+
+[sim] full decadal Monte Carlo (v6, with empirical mark distribution)…
+  Scenario A (random historical decade):
+    G4+ count mean=26.5  G5 mean=2.94  P(>=1 G5/decade)=0.919  P(>=2 G5/decade)=0.744
+    P(>=4 in 7d) = 0.477
+  Scenario B (SC25-like decade):
+    G4+ count mean=17.4  G5 mean=1.88  P(>=1 G5/decade)=0.824  P(>=2 G5/decade)=0.549
+    P(>=4 in 7d) = 0.324
+
+[fig] 15_v6_mark_productivity.png
+[fig] 16_v6_g5_decadal.png
+
+[done] v6 marked-Hawkes analysis complete

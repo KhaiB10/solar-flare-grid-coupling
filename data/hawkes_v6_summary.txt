@@ -1,0 +1,25 @@
+v6: Marked Hawkes (mark = Kp_max) — G4+ storms 1932-2025
+============================================================
+
+N = 246  (27 G5, 219 G4)
+
+MLE:
+  μ0   = 0.00549 /day  (2.005/yr)
+  γ    = 0.8447
+  α    = 0.1113
+  β    = 0.6520   (1/β = 1.53 d)
+  κ    = +1.0047   ⇒ G5 productivity = 2.731× a G4
+
+  η(G4) = α/β       = 0.171
+  η(G5) = α e^κ / β = 0.466
+
+AIC: v6=2594.01  v5=2598.21  Δ=-4.20
+LR (v6 vs v5) = 6.20   χ²(1) p = 1.279e-02
+
+Time-rescaling τ: mean=1.001 var=1.184
+  KS vs Exp(1): D=0.049  p=5.703e-01
+  lag-1 autocorr: r=+0.008  p=9.00e-01
+
+Monte Carlo (3,000 decades each):
+  Scenario A (random hist):  G4+/dec mean=26.51  G5/dec mean=2.94  P(>=1 G5)=0.919  P(>=4 in 7d)=0.477
+  Scenario B (SC25-like):    G4+/dec mean=17.42  G5/dec mean=1.88  P(>=1 G5)=0.824  P(>=4 in 7d)=0.324

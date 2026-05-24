@@ -22,6 +22,39 @@ A 94-year open replication of geomagnetic storm hazard rates with documented gri
 
 
 
+## v6 finding — marked Hawkes: a G5 punches ~2.7× harder than a G4
+
+Think of it as the seismology productivity law ("a magnitude-7 quake produces
+more aftershocks than a magnitude-6"), translated to geomagnetic storms.
+v6 lets each event's excitation amplitude depend on its Kp magnitude:
+
+  λ(t) = μ(t) + Σ α · exp(κ (m_i − m_0)) · exp(−β (t − t_i))
+
+MLE result, all 8 random starts converging:
+
+- **κ = +1.005** ⇒ a G5 (Kp = 9) event excites e^κ ≈ **2.73×** the
+  follow-on activity of a G4 (Kp = 8)
+- Per-event branching ratio: η(G4) = 0.17, **η(G5) = 0.47**
+- 1/β unchanged at 1.53 d; μ and γ unchanged from v5
+- ΔAIC (v6 − v5) = **−4.20**; LR χ²(1) = 6.20, **p = 0.013**
+- GOF stays clean: residual KS p = 0.57, lag-1 autocorr = +0.008
+
+The finding is also visible in the **raw 1932–2025 record with no model**:
+Kp=8.0 days are followed by 0.29 G4+ days in the next week on average;
+Kp=9.0 days are followed by **0.67**. The marked Hawkes is fitting a
+real, model-independent pattern.
+
+Decadal hazard for an SC25-like decade: expected G5 count = **1.88**,
+P(≥1 G5/decade) = **82.4%**, P(≥2 G5/decade) = **54.9%**. SC25 has already
+delivered two G5 days (May & Oct 2024) so most of the cycle's G5 budget
+appears to be spent.
+
+See [`FINDINGS_v6.md`](FINDINGS_v6.md) — includes a plain-English explanation
+of the whole v1→v6 progression and who in the real world is impacted by
+this kind of analysis.
+
+![v6 mark productivity](figures/15_v6_mark_productivity.png)
+
 ## v5 finding — non-stationary Hawkes with SSN-modulated background
 
 v4's stationary Hawkes left two warning signs: rescaled-residual KS p = 2.8×10⁻³
