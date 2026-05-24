@@ -21,6 +21,30 @@ A 94-year open replication of geomagnetic storm hazard rates with documented gri
 
 
 
+
+## v4 finding — formal Hawkes self-exciting point process
+
+Turning the v3 observation into a proper generative model: we fit a univariate
+exponential-kernel **Hawkes process** to the 246 G4+ events by maximum likelihood.
+Six independent optimizer starts all converged to the same global optimum:
+
+- μ̂ = **1.87 events/year** (background "immigration" rate)
+- 1/β̂ = **1.74 days** (excitation decay timescale — the cluster physics)
+- η̂ = α/β = **0.284** (branching ratio — ~28% of events are excited offspring)
+
+Goodness-of-fit by the time-rescaling theorem: KS p = 2.8×10⁻³ vs Poisson's
+4.5×10⁻¹⁶ — **13 orders of magnitude improvement**. ΔAIC = −246.5. Likelihood
+ratio χ²(2) = 250.5, p ≈ 0.
+
+Forward Monte Carlo (5,000 decades) shows Hawkes and Poisson agree on the
+**mean** count per decade (~26) but Hawkes has **40% more spread** and predicts
+P(≥4 G4 days in some 7-day window per decade) = **47.9%** — consistent with
+the two observed multi-day clusters in the 94-year record (March 1940, March 1991).
+
+See [`FINDINGS_v4.md`](FINDINGS_v4.md) and [`scripts/analyze_hawkes.py`](scripts/analyze_hawkes.py).
+
+![Hawkes GOF and decadal count](figures/10_hawkes_gof_and_sim.png)
+
 ## v3 finding — G4+ storms are not Poisson
 
 After exploring six hypotheses across the 94-year record, the standout novel finding:

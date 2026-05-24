@@ -1,0 +1,29 @@
+Hawkes-process MLE fit for G4+ geomagnetic storms, 1932-2025
+============================================================
+N events: 246
+Observation window: 94.00 years
+
+MLE parameters (exponential kernel):
+  μ = 0.00513 events/day  (1.873/yr) — background rate
+  α = 0.1634 — excitation amplitude
+  β = 0.5749 1/day  (decay timescale 1.74 d)
+  η = α/β = 0.284 — branching ratio
+
+Log-likelihood: -1335.61
+AIC: Hawkes=2677.23   Poisson=2923.76   Δ=-246.53
+LR statistic: 250.53   χ²(2) p = 0.000e+00
+
+Time-rescaling residuals:
+  mean=0.999 (expect 1)  var=2.119 (expect 1)
+  KS vs Exp(1): D=0.115, p=2.805e-03
+  Poisson reference KS: D=0.268, p=4.514e-16
+
+Stochastic declustering:
+  Expected background events: 176.1  (71.6%)
+  Expected offspring events:  69.9  (28.4%)
+
+Monte Carlo (N=5000 decades):
+  Hawkes mean count/decade  = 26.32, sd=7.19
+  Poisson mean count/decade = 26.19, sd=5.07
+  Hawkes Var/Mean = 1.96  (Poisson=1.0)
+  P(>=4 G4+ in any 7-day window per decade): 0.479
