@@ -22,6 +22,44 @@ A 94-year open replication of geomagnetic storm hazard rates with documented gri
 
 
 
+## v16 finding — SC26 amplitude prediction (true out-of-sample test of v15)
+
+Using v15's population posterior (hyperparameters describing the population of
+solar cycles), drew **fresh** `(μ₀, α, β, κ)` parameters for SC26 and simulated
+2000 11.5-year cycle realizations under four F10.7 scenarios. **No SC26 data
+exists — this is a real forecast, not a hindcast.**
+
+**Headline (PHYSICAL scenario, SC23-shape F10.7, peak ∼N(155, 25²) sfu):**
+
+| Quantity | Posterior |
+|---|---|
+| SC26 total G4+ events (2031-07 → 2042-12) | **median 13, 95% HDI [2, 38]** |
+| P(≥1 G5 during SC26) | **64.7%** |
+| P(≥2 G5 during SC26) | **35.6%** |
+| Peak activity year | **≈2036** (median) |
+
+**Scenario sensitivity:**
+
+| Scenario | F10.7 | SC26 median | P(≥1 G5) |
+|---|---|---|---|
+| PHYSICAL  | SC23-shape, peak ∼N(155, 25²) | **13** | 64.7% |
+| FLAT_QUIET  | 118 sfu (Singh+2021 forecast) | 22 | 82.3% |
+| FLAT_AVG  | 150 sfu (mid-modern)         | 37 | 92.7% |
+| FLAT_LIKE25 | 180 sfu (SC25-like)         | 55 | 97.1% |
+
+Historical: SC22=28, SC23=31, SC24=3, SC25=10 partial.
+
+Under the most realistic scenario, SC26 will likely be **the third-quietest cycle
+of the modern era**, comparable to SC24-SC25 range and well below SC21-SC23.
+
+Full analysis in [FINDINGS_v16_SC26.md](FINDINGS_v16_SC26.md);
+script `scripts/analyze_sc26_forecast_v16.py` (~20 s wallclock).
+
+![SC26 count distribution](figures/60_sc26_count_distribution.png)
+![SC26 ECDF by scenario](figures/63_sc26_count_ecdf.png)
+
+---
+
 ## v15 finding — Hierarchical Bayes per solar cycle + SC25 forecast through 2030
 
 Stepped up from a single pooled fit to a **17-cycle hierarchical Bayesian Hawkes**

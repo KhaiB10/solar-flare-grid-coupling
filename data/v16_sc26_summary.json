@@ -1,0 +1,91 @@
+{
+  "seed": 20260523,
+  "model": "v16 SC26 prior-predictive \u2014 draws fresh cycle from v15 population posterior",
+  "window": {
+    "start": "2031-07-01",
+    "end": "2042-12-31",
+    "days": 4202
+  },
+  "n_post_draws": 6000,
+  "n_sims_per_scenario": 2000,
+  "historical_counts": {
+    "22": 28,
+    "23": 31,
+    "24": 3,
+    "25": 10
+  },
+  "scenarios": {
+    "FLAT_QUIET": {
+      "description": "F10.7 flat @ 118 sfu (Singh+2021)",
+      "count_median": 22,
+      "count_hdi_50": [
+        15,
+        31
+      ],
+      "count_hdi_95": [
+        6,
+        61
+      ],
+      "P_count_greater_30": 0.264,
+      "P_count_greater_50": 0.0515,
+      "P_count_less_than_10": 0.0795,
+      "g5_median": 2,
+      "P_any_G5": 0.8225,
+      "P_two_or_more_G5": 0.568
+    },
+    "FLAT_AVG": {
+      "description": "F10.7 flat @ 150 sfu (modern avg)",
+      "count_median": 37,
+      "count_hdi_50": [
+        27,
+        50
+      ],
+      "count_hdi_95": [
+        12,
+        99
+      ],
+      "P_count_greater_30": 0.657,
+      "P_count_greater_50": 0.248,
+      "P_count_less_than_10": 0.0125,
+      "g5_median": 3,
+      "P_any_G5": 0.927,
+      "P_two_or_more_G5": 0.79
+    },
+    "FLAT_LIKE25": {
+      "description": "F10.7 flat @ 180 sfu (SC25-like)",
+      "count_median": 55,
+      "count_hdi_50": [
+        40,
+        74
+      ],
+      "count_hdi_95": [
+        20,
+        143
+      ],
+      "P_count_greater_30": 0.886,
+      "P_count_greater_50": 0.5805,
+      "P_count_less_than_10": 0.001,
+      "g5_median": 5,
+      "P_any_G5": 0.9705,
+      "P_two_or_more_G5": 0.899
+    },
+    "PHYSICAL": {
+      "description": "F10.7 SC23-shape, peak ~N(155,25) truncated",
+      "count_median": 13,
+      "count_hdi_50": [
+        8,
+        18
+      ],
+      "count_hdi_95": [
+        2,
+        38
+      ],
+      "P_count_greater_30": 0.0615,
+      "P_count_greater_50": 0.0085,
+      "P_count_less_than_10": 0.335,
+      "g5_median": 1,
+      "P_any_G5": 0.647,
+      "P_two_or_more_G5": 0.3555
+    }
+  }
+}

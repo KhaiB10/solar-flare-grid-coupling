@@ -1,0 +1,60 @@
+[1] loading v15 posterior and reference catalog…
+  posterior draws available: 6000
+  S_bar (training mean F10.7) = 118.23
+  historical G4+ counts: {22: 28, 23: 31, 24: 3, 25: 10}
+  modern (SC23-25) mark distribution: n=45, min/median/max = 8.0/8.3/9.0
+  marks >=9 in modern record: 4/45 = 8.9%
+
+[2] SC26 forecast window…
+  window: 2031-07-01 -> 2042-12-31 (4202 d = 11.50 yr)
+  template based on SC23 shape, length 4202 d, min->max ratio 66->279
+
+[4] running 2000 simulations per scenario…
+
+  scenario FLAT_QUIET: F10.7 flat @ 118 sfu (Singh+2021)
+    500/2000: median count = 22.0  (0.9s)
+    1000/2000: median count = 22.0  (1.6s)
+    1500/2000: median count = 22.0  (2.3s)
+    2000/2000: median count = 22.0  (3.0s)
+  done  median=22.0  95% HDI=[6,61]  P(>=1 G5)=0.823
+
+  scenario FLAT_AVG: F10.7 flat @ 150 sfu (modern avg)
+    500/2000: median count = 37.0  (1.3s)
+    1000/2000: median count = 36.0  (2.4s)
+    1500/2000: median count = 37.0  (3.6s)
+    2000/2000: median count = 37.0  (4.8s)
+  done  median=37.0  95% HDI=[12,99]  P(>=1 G5)=0.927
+
+  scenario FLAT_LIKE25: F10.7 flat @ 180 sfu (SC25-like)
+    500/2000: median count = 55.0  (1.8s)
+    1000/2000: median count = 55.0  (3.7s)
+    1500/2000: median count = 55.0  (5.4s)
+    2000/2000: median count = 55.0  (7.2s)
+  done  median=55.0  95% HDI=[20,143]  P(>=1 G5)=0.971
+
+  scenario PHYSICAL: F10.7 SC23-shape, peak ~N(155,25) truncated
+    500/2000: median count = 12.0  (0.4s)
+    1000/2000: median count = 12.0  (0.9s)
+    1500/2000: median count = 13.0  (1.3s)
+    2000/2000: median count = 13.0  (1.7s)
+  done  median=13.0  95% HDI=[2,38]  P(>=1 G5)=0.647
+
+[5] generating plots…
+/home/user/workspace/solar-flare-grid-coupling/scripts/analyze_sc26_forecast_v16.py:276: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  ax.boxplot(g5_data, labels=g5_labels, showmeans=True, meanprops={"marker":"D","markerfacecolor":"red","markersize":6})
+  saved figures 60-62
+
+[6] writing summary JSON…
+  saved data/v16_sc26_summary.json
+
+=== SC26 forecast summary across F10.7 scenarios ===
+  Historical: SC22=28  SC23=31  SC24=3  SC25 partial through 2025-05=10
+
+  scenario           med  50% HDI       95% HDI        P(>30)   P(>50)    P(G5)   P(2G5)
+  FLAT_QUIET          22  [ 15, 31]   [  6, 61]     0.264    0.051    0.823    0.568
+  FLAT_AVG            37  [ 27, 50]   [ 12, 99]     0.657    0.248    0.927    0.790
+  FLAT_LIKE25         55  [ 40, 74]   [ 20,143]     0.886    0.581    0.971    0.899
+  PHYSICAL            13  [  8, 18]   [  2, 38]     0.061    0.009    0.647    0.355
+
+[done v16 SC26 forecast]
+EXIT=0
