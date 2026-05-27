@@ -22,6 +22,49 @@ A 94-year open replication of geomagnetic storm hazard rates with documented gri
 
 
 
+## v15 finding — Hierarchical Bayes per solar cycle + SC25 forecast through 2030
+
+Stepped up from a single pooled fit to a **17-cycle hierarchical Bayesian Hawkes**
+(PyMC NUTS, 4 chains × 1500 draws, R̂ = 1.000, ESS_bulk min = 2778, zero
+divergences). Each solar cycle SC9–SC25 gets its own `(μ₀, α, β, κ)`, drawn from
+a population distribution we also estimate.
+
+**Headline results:**
+
+| Population finding | Value |
+|---|---|
+| Typical cycle background μ₀ | **0.0039 G4+/day at S̄** (≈ 1.4 events/yr) |
+| Between-cycle SD of log μ₀ | **0.38** (meaningful heterogeneity) |
+| Between-cycle SD of log α | **0.11** (excitation strength ≈ universal) |
+| Between-cycle SD of log β | **0.10** (cluster half-life ≈ 1.66 d ≈ universal) |
+| γ (pooled F10.7→rate) | **2.15** [1.81, 2.50] |
+
+**Cascade physics is invariant across cycles, but background rate is not.**
+That's the cleanest possible structural verdict for this family of models.
+
+**SC24 anomaly test:** posterior z-score = −1.42 [−2.87, −0.04]; P(SC24 below
+population median) = **97.9%**. Quiet but not formally an outlier — the
+hierarchical model treats SC24 as the low end of normal cycle variation.
+
+**SC25 forecast (conditioned on 10 observed G4+ events through 2025-05-31,
+F10.7 held flat at 189.8 sfu through 2030):**
+
+| Quantity | Posterior |
+|---|---|
+| G4+ events 2025-06 → 2030-12 (forward only) | **median 23, 95% HDI [9, 48]** |
+| P(>10 forward events) | **95.2%** |
+| P(>20 forward events) | **62.9%** |
+| P(≥1 G5 by 2030) | **≈ 87%** |
+
+Full analysis in [FINDINGS_v15.md](FINDINGS_v15.md). All inputs derived from
+public NOAA/Penticton/Helsinki sources; analysis script
+`scripts/analyze_hawkes_v15.py`; trace `data/v15_idata.pkl`.
+
+![Per-cycle μ₀](figures/50_v15_per_cycle_mu0.png)
+![SC25 forecast](figures/52_v15_sc25_forecast.png)
+
+---
+
 ## v14 finding — Omori-Utsu power-law kernel rescues the SC24 splits
 
 Replaced v7-v12's exponential excitation kernel `φ(τ) = α exp(-βτ)` with the

@@ -1,0 +1,66 @@
+PyMC 6.0.1, PyTensor 3.0.3
+
+[1] loading event catalog and daily F10.7 background…
+  S_daily 66079 days, 1844-07-01→2025-05-31, S̄=118.23 sfu
+  434 events in window, T_obs = 66078 d = 180.91 yr
+
+  Solar cycles covered: SC8-SC25 (18 cycles)
+  Events per cycle:
+    SC9 (1843-1855): 33 events
+    SC10 (1855-1867): 63 events
+    SC11 (1867-1878): 22 events
+    SC12 (1878-1890): 12 events
+    SC13 (1890-1902): 18 events
+    SC14 (1902-1913): 12 events
+    SC15 (1913-1923): 12 events
+    SC16 (1923-1933): 18 events
+    SC17 (1933-1944): 29 events
+    SC18 (1944-1954): 36 events
+    SC19 (1954-1964): 54 events
+    SC20 (1964-1976): 26 events
+    SC21 (1976-1986): 27 events
+    SC22 (1986-1996): 28 events
+    SC23 (1996-2008): 31 events
+    SC24 (2008-2019): 3 events
+    SC25 (2019-2031): 10 events
+
+  Cycles in fit: 17
+  per-cycle observed durations (yr): SC9=11.4, SC10=11.2, SC11=11.8, SC12=11.2, SC13=11.8, SC14=11.5, SC15=10.1, SC16=10.1, SC17=10.4, SC18=10.2, SC19=10.5, SC20=11.4, SC21=10.5, SC22=9.9, SC23=12.3, SC24=11.0, SC25=5.5
+
+[2] preparing PyTensor likelihood…
+
+[3] building hierarchical model…
+  model built
+  parameters: 13 RVs
+    mu_mu: shape ()
+    sigma_mu: shape ()
+    mu_alpha: shape ()
+    sigma_alpha: shape ()
+    mu_beta: shape ()
+    sigma_beta: shape ()
+    mu_kappa: shape ()
+    sigma_kappa: shape ()
+    gamma: shape ()
+    z_mu: shape (17,)
+    z_alpha: shape (17,)
+    z_beta: shape (17,)
+    z_kappa: shape (17,)
+
+[4] sampling with NUTS (4 chains × 1500 tune + 1500 draws)…
+Initializing NUTS using jitter+adapt_diag...
+/usr/local/lib/python3.12/site-packages/pytensor/tensor/rewriting/elemwise.py:872: UserWarning: Loop fusion failed because the resulting node would exceed the kernel argument limit.
+  warn(
+Sequential sampling (4 chains in 1 job)
+NUTS: [mu_mu, sigma_mu, mu_alpha, sigma_alpha, mu_beta, sigma_beta, mu_kappa, sigma_kappa, gamma, z_mu, z_alpha, z_beta, z_kappa]
+Sampling 4 chains for 1_500 tune and 1_500 draw iterations (6_000 + 6_000 draws total) took 938 seconds.
+  sampling took 15.8 minutes
+  trace saved to data/v15_idata.pkl
+  netcdf save skipped: ImportError("No module named 'h5py', backend not available. Please install 'h5py' into your Python environment.")
+
+[5] convergence diagnostics…
+Traceback (most recent call last):
+  File "/home/user/workspace/solar-flare-grid-coupling/scripts/analyze_hawkes_v15.py", line 325, in <module>
+    summ = az.summary(idata, var_names=["mu_mu","sigma_mu","mu_alpha","sigma_alpha",
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: summary() got an unexpected keyword argument 'hdi_prob'
+EXIT=1
