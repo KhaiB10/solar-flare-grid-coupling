@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "paper_doi": {"type": "string", "title": "DOI"},
+    "paper_title": {"type": "string", "title": "Paper Title"},
+    "authors_short": {"type": "string", "title": "Authors (short)"},
+    "year": {"type": "string", "title": "Year"},
+    "venue": {"type": "string", "title": "Venue"},
+    "peer_reviewed": {"type": "string", "title": "Peer Reviewed (yes/no/preprint)"},
+    "domain": {"type": "string", "title": "Domain"},
+    "subdomain_or_dataset": {"type": "string", "title": "Subdomain / Dataset"},
+    "n_branching": {"type": "string", "title": "Branching ratio n (point estimate)"},
+    "n_branching_ci": {"type": "string", "title": "Branching ratio CI or stderr"},
+    "kernel_form": {"type": "string", "title": "Kernel form (exp/Omori/power-law/other)"},
+    "t_half_seconds": {"type": "string", "title": "Half-life in seconds (converted)"},
+    "t_half_raw": {"type": "string", "title": "Half-life as reported (raw units)"},
+    "kappa_sign": {"type": "string", "title": "Mark/covariate effect sign (+/-/0/NA)"},
+    "kappa_value": {"type": "string", "title": "Mark/covariate magnitude"},
+    "n_events": {"type": "string", "title": "Sample size (#events)"},
+    "obs_window": {"type": "string", "title": "Observation window"},
+    "mu_background": {"type": "string", "title": "Background rate (with units)"},
+    "extraction_notes": {"type": "string", "title": "Notes / Caveats"},
+    "source_url": {"type": "string", "title": "Source URL"}
+  }
+}

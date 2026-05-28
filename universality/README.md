@@ -2,7 +2,9 @@
 
 Cross-domain comparison branch off the main solar Hawkes work. **Not** loaded by default from `main` — this lives on the `universality` branch.
 
-See **[FINDINGS_universality.md](FINDINGS_universality.md)** for the full writeup with analogy, math, results, and caveats.
+See **[FINDINGS_universality.md](FINDINGS_universality.md)** for the 3-domain writeup with analogy, math, results, and caveats.
+
+For the broader 24-row peer-reviewed cross-domain table, see **[periodic-table/FINDINGS_periodic_table.md](periodic-table/FINDINGS_periodic_table.md)**.
 
 ## Contents
 
@@ -17,9 +19,16 @@ universality/
 │   ├── universality_summary.json     n, t_half, kappa per domain with CIs
 │   ├── universality_samples.npz      raw posterior arrays
 │   └── scaling_test.json             OLS slope = 0.24, R² = 0.73
-└── figures/
-    ├── 01_universality_three_panel.png   branching ratio, half-life, κ
-    └── 02_universality_scaling.png       t_half vs τ_forcing on log-log
+├── figures/
+│   ├── 01_universality_three_panel.png   branching ratio, half-life, κ
+│   └── 02_universality_scaling.png       t_half vs τ_forcing on log-log
+└── periodic-table/                       24-row peer-reviewed Hawkes table (v1)
+    ├── FINDINGS_periodic_table.md        ~190-line writeup (popcorn-machine framing)
+    ├── SCHEMA.md                         25-column CSV schema
+    ├── data/periodic_table_v1.csv        24 curated rows, 7 domains
+    ├── papers/                           candidate paper queues
+    ├── scripts/                          builder + figure scripts (seed 20260523)
+    └── figures/                          4 PNGs (scatter, n histograms, κ signs, t_half range)
 ```
 
 ## Quick numbers
