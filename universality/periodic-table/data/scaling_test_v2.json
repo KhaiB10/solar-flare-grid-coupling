@@ -1,0 +1,24 @@
+{
+  "n_pairs": 10,
+  "ols": {
+    "slope": -0.5632974539788648,
+    "intercept": 4.99412671384542,
+    "r_squared": 0.09980402329364249,
+    "p_value": 0.37386946131172033,
+    "std_err": 0.5981185945554137
+  },
+  "theil_sen": {
+    "slope": -0.03592742276337157,
+    "intercept": 5.378367648900623,
+    "slope_95ci_lo": -2.5484561897253935,
+    "slope_95ci_hi": 1.7525918665799296
+  },
+  "by_domain_counts": {
+    "heliophysics": 1,
+    "tropical_cyclones": 1,
+    "finance": 1,
+    "crime": 4,
+    "cyber": 3
+  },
+  "interpretation": "Strict scale-invariance under universal Hawkes would predict slope=-1 (faster systems = higher branching). Observed slope is the empirical scaling. v1 OLS slope was ~0.24-0.29 (effectively flat, falsifying strict scale-invariance)."
+}

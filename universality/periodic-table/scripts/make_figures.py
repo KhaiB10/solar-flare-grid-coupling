@@ -13,7 +13,7 @@ from collections import Counter
 np.random.seed(20260523)
 
 ROOT = Path(__file__).resolve().parents[1]
-CSV_PATH = ROOT / "data" / "periodic_table_v1.csv"
+CSV_PATH = ROOT / "data" / "periodic_table_v2.csv"
 FIG_DIR = ROOT / "figures"
 FIG_DIR.mkdir(exist_ok=True)
 
@@ -42,6 +42,8 @@ DOMAIN_COLOR = {
     "social": "#e64980",
     "crime": "#fa5252",
     "epidemiology": "#15aabf",
+    "cyber": "#0ca678",
+    "neuroscience": "#9c36b5",
 }
 
 
@@ -83,7 +85,7 @@ def figure_scatter():
     ax.set_yscale("log")
     ax.set_xlabel(r"Excitation half-life $t_{1/2}$ (seconds)", fontsize=13)
     ax.set_ylabel(r"Branching ratio $n$", fontsize=13)
-    ax.set_title("Periodic Table of Self-Exciting Systems\nlog(n) vs log(half-life), curated peer-reviewed Hawkes fits",
+    ax.set_title("Periodic Table of Self-Exciting Systems (v2, 41 rows / 9 domains)\nlog(n) vs log(half-life), curated Hawkes fits from peer-reviewed + arXiv-OA sources",
                  fontsize=13, pad=14)
 
     # Reference lines: criticality, stability
@@ -148,7 +150,7 @@ def figure_n_hist():
     for j in range(len(domains), n_rows * n_cols):
         axes[j // n_cols][j % n_cols].axis("off")
 
-    fig.suptitle("Branching ratio distribution by domain (curated peer-reviewed fits)", fontsize=13, y=1.0)
+    fig.suptitle("Branching ratio distribution by domain (v2: 41 rows / 9 domains)", fontsize=13, y=1.0)
     plt.tight_layout()
     plt.savefig(FIG_DIR / "02_n_histograms.png", dpi=160, bbox_inches="tight")
     plt.close()
@@ -161,12 +163,12 @@ def figure_kappa():
     counts = Counter()
     for r in rows:
         sign = (r.get("kappa_sign") or "").strip()
-        if sign in ("+", "-", "0", "NA"):
+        if sign in ("+", "-", "+/-", "0", "NA"):
             counts[(r["domain"], sign)] += 1
 
     domains = sorted({d for d, _ in counts.keys()})
-    signs = ["+", "-", "0", "NA"]
-    sign_color = {"+": "#37b24d", "-": "#f03e3e", "0": "#888", "NA": "#dee2e6"}
+    signs = ["+", "-", "+/-", "0", "NA"]
+    sign_color = {"+": "#37b24d", "-": "#f03e3e", "+/-": "#f59f00", "0": "#888", "NA": "#dee2e6"}
 
     fig, ax = plt.subplots(figsize=(10, max(4, 0.6 * len(domains) + 2)))
     y = np.arange(len(domains))
@@ -187,7 +189,7 @@ def figure_kappa():
     ax.set_yticks(y)
     ax.set_yticklabels([d.replace("_", " ") for d in domains])
     ax.set_xlabel("number of rows")
-    ax.set_title("Mark/covariate effect sign (kappa) by domain", fontsize=13)
+    ax.set_title("Mark/covariate effect sign (kappa) by domain — v2 (41 rows)", fontsize=13)
     ax.legend(loc="lower right", fontsize=10, framealpha=0.95)
     ax.grid(True, alpha=0.3, axis="x")
     plt.tight_layout()
@@ -219,7 +221,7 @@ def figure_thalf():
     ax.set_yticks(range(len(domains)))
     ax.set_yticklabels([d.replace("_", " ") for d in domains])
     ax.set_xlabel(r"$t_{1/2}$ (seconds)")
-    ax.set_title("Excitation half-life range by domain (log scale)", fontsize=13)
+    ax.set_title("Excitation half-life range by domain (log scale) — v2 (41 rows)", fontsize=13)
 
     for t_s, label in [(1, "1 s"), (60, "1 min"), (3600, "1 h"),
                         (86400, "1 d"), (86400*30, "1 mo"), (86400*365, "1 yr")]:
