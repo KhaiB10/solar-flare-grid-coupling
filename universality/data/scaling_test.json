@@ -1,0 +1,22 @@
+{
+  "tau_forcing_d": {
+    "earthquakes": 0.00011574074074074075,
+    "solar": 27.3,
+    "hurricane": 45.0
+  },
+  "t_half_d": {
+    "earthquakes": 0.1265423645744325,
+    "solar": 1.1628546548706422,
+    "hurricane": 17.449261790138337
+  },
+  "log_log_slope": 0.2890763385421288,
+  "log_log_intercept": 0.2181420529770891,
+  "log_log_prefactor": 1.652502225252146,
+  "R2": 0.7297139108400021,
+  "ratio_t_half_over_tau": {
+    "earthquakes": 1093.3260299230967,
+    "solar": 0.04259540860332023,
+    "hurricane": 0.38776137311418524
+  },
+  "interpretation": "Slope = 0.29 (b=1 = perfect scale-invariance). R^2 = 0.730 across 3 domains spanning 7 orders of magnitude on x. All three domains have t_half between 4.3% and 109332.6% of their characteristic forcing timescale."
+}

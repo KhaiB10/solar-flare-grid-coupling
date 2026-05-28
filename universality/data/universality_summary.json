@@ -1,0 +1,97 @@
+{
+  "seed": 20260523,
+  "method": "Match dimensionless statistics (branching ratio n, kernel half-life t_half, mark sensitivity kappa) across domains",
+  "solar": {
+    "domain": "Solar (G4+ geomagnetic storms)",
+    "kernel_form": "exponential exp(-beta*tau)",
+    "N_events": 435,
+    "T_obs_d": 65476.0,
+    "T_obs_yr": 179.26351813826147,
+    "branching_ratio": {
+      "median": 0.13413791155236698,
+      "hdi_95": [
+        0.07773844342910234,
+        0.24147199511094347
+      ]
+    },
+    "half_life_d": {
+      "median": 1.1628546548706422,
+      "hdi_95": [
+        0.7515273981915545,
+        1.7591689133493174
+      ]
+    },
+    "kappa": {
+      "median": 1.059855175210376,
+      "hdi_95": [
+        0.15073137700334394,
+        1.9255048551376173
+      ]
+    },
+    "mu_per_day": {
+      "median": 0.003914964220404537,
+      "hdi_95": [
+        0.0016400556637489248,
+        0.008769936695487531
+      ]
+    }
+  },
+  "hurricane": {
+    "domain": "Hurricanes (Cat-3+ Atlantic+EPac)",
+    "kernel_form": "exponential exp(-beta*tau)",
+    "N_events": 452,
+    "T_obs_d": 27758.0,
+    "T_obs_yr": 75.99726214921287,
+    "branching_ratio": {
+      "median": 0.0060839071687747645,
+      "hdi_95": [
+        0.002457773549341885,
+        0.011516259056131812
+      ]
+    },
+    "half_life_d": {
+      "median": 17.449261790138337,
+      "hdi_95": [
+        14.938760664264636,
+        22.50867062888636
+      ]
+    },
+    "kappa": {
+      "median": 0.17056748391002657,
+      "hdi_95": [
+        -0.19137531413755665,
+        0.35005025393167144
+      ]
+    },
+    "mu_per_day": {
+      "median": 0.05364262606917331,
+      "hdi_95": [
+        0.040764666521585446,
+        0.07030164316024344
+      ]
+    }
+  },
+  "earthquakes_etas": {
+    "domain": "Earthquakes (ETAS literature, Utsu 1993; Helmstetter-Sornette 2002)",
+    "kernel_form": "Omori power law (tau+c)^-p",
+    "N_events": "varies; thousands per region",
+    "T_obs_d": "decades",
+    "T_obs_yr": "decades",
+    "branching_ratio": {
+      "range": [
+        0.5,
+        0.8
+      ]
+    },
+    "half_life_d": {
+      "range": [
+        0.002295014488745371,
+        0.3008068248898675
+      ],
+      "mid": 0.1265423645744325
+    },
+    "kappa": {
+      "note": "ETAS uses K * exp(alpha*M), where alpha_etas in 0.7-1.5 (different parameterization)"
+    }
+  }
+}

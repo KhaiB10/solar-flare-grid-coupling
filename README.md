@@ -22,6 +22,10 @@ A 94-year open replication of geomagnetic storm hazard rates with documented gri
 
 
 
+## Related branch — `universality/`
+
+Cross-domain Hawkes comparison combining the v15 solar posterior with a separate hurricane (Cat-3+) Hawkes fit and ETAS-earthquake literature numbers. Lives on the [`universality` branch](../../tree/universality/universality) of this repo. Headline: all three domains are sub-critical with mark-positive productivity (*structural* universality holds), but the dimensionless ratio t_half / τ_forcing is **not** scale-invariant (OLS slope ≈ 0.24 across 3 domains, far from 1). See [`universality/FINDINGS_universality.md`](../../blob/universality/universality/FINDINGS_universality.md).
+
 ## v16 finding — SC26 amplitude prediction (true out-of-sample test of v15)
 
 Using v15's population posterior (hyperparameters describing the population of
